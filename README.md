@@ -9,7 +9,7 @@
 * Team name: TEAMNAME
 * Team members
   * MEMBER1
-  * MEMBER2
+  * Vanessa Nava-Camal
   * MEMBER3
   * MEMBER4
 
