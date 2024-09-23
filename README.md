@@ -15,7 +15,9 @@
 
 ## Executive Summary
 
-This is a summary of the project.
+When in college, many students are limited to part-time jobs while balancing their courses, to manage their finances. Even then students try not to spend too much since they might not have a regular income. On the other hand, some students might not have time or might need help but cannot go to the school’s tutoring hours due to other commitments. The goal of this application is to allow students with free time to offer their services,such as cooking meals, and tutoring, to other students who might need help in some sort of way. In other words a student freelancing app for RIT students. 
+There exist a plethora of unexplored opportunities for students to reach out to each other hence the desirability of a centralized location for all of those ideas to ensemble. This app would fulfill that dream.
+
 
 
 ## Requirements
