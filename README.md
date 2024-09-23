@@ -30,7 +30,7 @@ This section describes the features of the application.
 ### MVP Features
 * Epics and Stories
   * Registration
-    *Story 1 
+    * Story 1 
   * Login
   * Manage profile
   * Manage services
