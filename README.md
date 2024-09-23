@@ -36,13 +36,9 @@ This section describes the features of the application.
      *  Description 1..
 * Login
      *  Description 1.. 
-* Manage profile
-     *  Description 1.. 
-* Manage services
-     *  Description 1.. 
-Filtering / Searching services
+* Filtering / Searching services *
      * A student will be able to compare other services available. 
-Scheduling the services
+* Scheduling the services *
     * A freelance student should be able to schedule a service to a designated student.
 * Manage notifications
 * Simple messaging
