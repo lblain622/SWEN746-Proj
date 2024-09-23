@@ -8,7 +8,7 @@
 ## Team Information
 * Team name: TEAMNAME
 * Team members
-  * Lucille
+  * Lucille Blain
   * Vanessa Nava-Camal
   * MEMBER3
   * MEMBER4
