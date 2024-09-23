@@ -38,15 +38,12 @@ This section describes the features of the application.
 *Manage services*
   * Freelancers will be able to create, delete and manage a service they want to provide to other students. Students will also be able to see what services are available from what student.
 
-
-* Registration
-     *  Description 1..
-* Login
-     *  Description 1.. 
 *Filtering / Searching services*
-     * A student will be able to compare other services available.
+  * A student will be able to compare other services available.
+     
 *Scheduling the services*
-    * A freelance student should be able to schedule a service to a designated student.
+  * A freelance student should be able to schedule a service to a designated student.
+     
 * Manage notifications
 * Simple messaging
 * Review/ Rating System
