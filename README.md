@@ -10,7 +10,7 @@
 * Team members
   * Lucille Blain
   * Vanessa Nava-Camal
-  * MEMBER3
+  * Jose Palomino Lau
   * MEMBER4
 
 ## Executive Summary
