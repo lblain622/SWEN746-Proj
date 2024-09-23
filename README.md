@@ -35,7 +35,12 @@ This section describes the features of the application.
   * Manage profile
   * Manage services
   * Filtering / Searching services
+   * Stories:
+   * As a student I want to filter different services, so I can get what I want more specifically.
+   * As a student, I want to receive recommendations based on my previous bookings or searches, so I can discover relevant services more easily.
   * Scheduling the services
+   * 	A freelance student should be able to schedule a service to a designated student.
+   * As a freelance student, I want to show my availability, so my customers can plan accordingly.
   * Manage notifications
   * Simple messaging
   * Review/ Rating System
