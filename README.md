@@ -25,7 +25,12 @@ There exist a plethora of unexplored opportunities for students to reach out to 
 This section describes the features of the application.
 
 ### Definition of MVP
-> _Provide a simple description of the Minimum Viable Product._
+*Manage profile*
+  * Users will be able to create,delete, and update from profiles. If  the person is using an edu/school afflicted email.,they can also verify their account as a student.
+
+*Manage services*
+  * Freelancers will be able to create, delete and manage a service they want to provide to other students. Students will also be able to see what services are available from what student.
+
 
 ### MVP Features
 * Epics and Stories
