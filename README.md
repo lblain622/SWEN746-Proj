@@ -28,8 +28,9 @@ This section describes the features of the application.
 > _Provide a simple description of the Minimum Viable Product._
 
 ### MVP Features
-* Epics
+* Epics and Stories
   * Registration
+    *Story 1 
   * Login
   * Manage profile
   * Manage services
