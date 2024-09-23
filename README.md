@@ -25,6 +25,13 @@ There exist a plethora of unexplored opportunities for students to reach out to 
 This section describes the features of the application.
 
 ### Definition of MVP
+
+*Registration*
+  * Users will be able to create their own account to have access to the platform. They will need to input a valid username, email and password to create it successfully. In case they have a mistake the system will send a message with the validation error.
+
+*Login*
+  * Users will be able to access the platform only if they have a valid account.uden
+    
 *Manage profile*
   * Users will be able to create,delete, and update from profiles. If  the person is using an edu/school afflicted email.,they can also verify their account as a student.
 
