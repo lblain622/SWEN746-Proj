@@ -49,8 +49,8 @@ This section describes the features of the application.
    * Users will receive notifications related to their projects and bids, so they can stay informed.
 * Simple messaging
   * Users will be able to use the messaging feature to communicate directly with clients, so they can discuss project details and updates.
-*Review/ Rating System
- * Students will be able to leave a rating (eg., 1-5) after receiving a service.
+* Review/ Rating System
+  * Students will be able to leave a rating (eg., 1-5) after receiving a service.
  
 *Payment
  * Students will be able to pay freelancers directly for the services they book.
