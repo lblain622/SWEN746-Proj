@@ -12,6 +12,7 @@
   * Vanessa Nava-Camal
   * Jose Palomino Lau
   * Vinayaka Viswanatha
+  * Sai Sandeep Ramavath
 
 ## Executive Summary
 
@@ -69,7 +70,9 @@ This section describes the features of the application.
     * As freelance student should be able to schedule a service to a designated student.
     * As a freelance student, I want to show my availability, so my customers can plan accordingly.
   * Manage notifications
+    * Users should be able to receive notifications related to their projects and bids, so they can stay informed.
   * Simple messaging
+    * Users should be able to use the messaging feature to communicate directly with clients, so they can discuss project details and updates.
   * Review/ Rating System
     * As a student, I want to rate the freelancer’s service, so I can provide feedback based on my experience.
   * Payment
