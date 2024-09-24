@@ -46,8 +46,9 @@ This section describes the features of the application.
   * A freelance student should be able to schedule a service to a designated student.
      
 * Manage notifications
+   * Users will receive notifications related to their projects and bids, so they can stay informed.
 * Simple messaging
-
+  * Users will be able to use the messaging feature to communicate directly with clients, so they can discuss project details and updates.
 *Review/ Rating System
  * Students will be able to leave a rating (eg., 1-5) after receiving a service.
  
@@ -79,9 +80,12 @@ This section describes the features of the application.
     * As freelance student should be able to schedule a service to a designated student.
     * As a freelance student, I want to show my availability, so my customers can plan accordingly.
   * Manage notifications
-    * Users should be able to receive notifications related to their projects and bids, so they can stay informed.
+    * As a client I should be able to get the notification when I receive a message from the freelancer.
+    * As a freelancer student I should be able to get the notifiction when a client assigns me for a project.
+    * As a freelancer student I should be able to get the alerts of the deadline of the project.
+    * As a client I should be able to get the notification when the task assigned is completed by the freelance student. 
   * Simple messaging
-    * Users should be able to use the messaging feature to communicate directly with clients, so they can discuss project details and updates.
+    * As a Client/ Freelacner I should be able to send message to Freelancer/Client to discuss regarding the project details.
   * Review/ Rating System
     * As a student, I want to rate the freelancer’s service, so I can provide feedback based on my experience.
   * Payment
