@@ -53,8 +53,9 @@ This section describes the features of the application.
 ### MVP Features
 * Epics and Stories
   * Registration
-    * Story 1 
+    * As a user I want to be able to create an account, so I can login into the system
   * Login
+    * As a user I was to be able to verify my account credentials through the system, so it verifies that it is valid.
   * Manage profile
   * Manage services
   * Filtering / Searching services
