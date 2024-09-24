@@ -62,7 +62,16 @@ This section describes the features of the application.
   * Login
     * As a user I was to be able to verify my account credentials through the system, so it verifies that it is valid.
   * Manage profile
+  
+    * As a freelance student, I want to be able to have privacy, so that only those interested in my service can see me
+    * As a student, I want to see someone’s verification, so I can know they are a student
+
   * Manage services
+
+    * As a student I want to be able to see all the services available, so I can see which kind of services are available
+    * As a student, I want to compare multiple freelancers side by side, so I can make a more informed decision based on price, availability, and reviews.
+
+  
   * Filtering / Searching services
      * As a student I want to filter different services, so I can get what I want more specifically.
      * As a student, I want to receive recommendations based on my previous bookings or searches, so I can discover relevant services more easily.
