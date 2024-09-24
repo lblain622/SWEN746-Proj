@@ -44,15 +44,18 @@ This section describes the features of the application.
      
 *Scheduling the services*
   * A freelance student should be able to schedule a service to a designated student.
-     
-* Manage notifications
+
+*Manage notifications*
    * Users will receive notifications related to their projects and bids, so they can stay informed.
-* Simple messaging
+
+*Simple messaging*
   * Users will be able to use the messaging feature to communicate directly with clients, so they can discuss project details and updates.
-* Review/ Rating System
+    
+
+*Review/ Rating System*
   * Students will be able to leave a rating (eg., 1-5) after receiving a service.
  
-*Payment
+*Payment*
  * Students will be able to pay freelancers directly for the services they book.
 
 
