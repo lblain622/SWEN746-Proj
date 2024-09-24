@@ -11,7 +11,7 @@
   * Lucille Blain
   * Vanessa Nava-Camal
   * Jose Palomino Lau
-  * MEMBER4
+  * Vinayaka Viswanatha
 
 ## Executive Summary
 
@@ -46,8 +46,12 @@ This section describes the features of the application.
      
 * Manage notifications
 * Simple messaging
-* Review/ Rating System
-* Payment
+
+*Review/ Rating System
+ * Students will be able to leave a rating (eg., 1-5) after receiving a service.
+ 
+*Payment
+ * Students will be able to pay freelancers directly for the services they book.
 
 
 ### MVP Features
@@ -67,7 +71,9 @@ This section describes the features of the application.
   * Manage notifications
   * Simple messaging
   * Review/ Rating System
+    * As a student, I want to rate the freelancer’s service, so I can provide feedback based on my experience.
   * Payment
+    * As a student, I want to pay the freelance student directly through the platform, so I can complete the transaction securely.
 
 
 ## Architecture and Design
