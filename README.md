@@ -105,8 +105,7 @@ This section describes the application architecture.
 
 
 ### Use Cases
-> _Place a use case diagram here._
-> _Describe your use case diagram._
+![Use Case Diagram](./use_case_diagaram_png)
 
 
 ### Class Diagram
