@@ -105,7 +105,7 @@ This section describes the application architecture.
 
 
 ### Use Cases
-![Use Case Diagram](./use_case_diagaram_png)
+![Use Case Diagram](user_case_diagram_png.png)
 
 
 ### Class Diagram
