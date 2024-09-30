@@ -97,8 +97,7 @@ This section describes the features of the application.
 ### Acceptance Criteria
 
   * MVP name
-    * Stories name
-      * Acceptance criteria
+    * Acceptance criteria
 
 
 ## Architecture and Design
