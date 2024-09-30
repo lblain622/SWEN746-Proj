@@ -94,6 +94,12 @@ This section describes the features of the application.
   * Payment
     * As a student, I want to pay the freelance student directly through the platform, so I can complete the transaction securely.
 
+### Acceptance Criteria
+
+  * MVP name
+    * Stories name
+      * Acceptance criteria
+
 
 ## Architecture and Design
 
