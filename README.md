@@ -116,6 +116,13 @@ This section describes the features of the application.
   * Manage services
     * Students will be able to see all avaible freelances for their selected sernice
     * Freelances will be able to create,update,and delete their service posting
+  * Manage notifications:
+    * When a user places a bid or a bid is accepted, they should receive notification immediately.
+    * When there is a status change on the project (such as status change, a deadline reminder, or a milestone completion) the user will receive a notification.
+    * Users will receive a notification when a user sends a message.
+  * Simple messaging:
+    * Users can send and receive messages between clients and freelancers within the platform.
+
 
 
 ## Architecture and Design
