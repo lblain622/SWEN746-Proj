@@ -105,10 +105,10 @@ This section describes the features of the application.
       
   * Filtering / Searching services 
     * The search should return an exact list of candidates matching the user's keywords. 
-    * The search request should be shown in a suggestion tab with an organized and clear UI. 
-     
+    * The search request should be shown in a suggestion tab with an organized and clear UI.
+
   * Scheduling the services 
-    * The booking listed should be shown accurately on the user's "schedule" tab. 
+    * Ensure that services are marked as unavailable once they are booked to avoid confusion to other students.
     * The availability must exactly match the user's entered timeframed.
   * Manage profile
     * Users will be able to verify that they are a student to other users if the use an non edu account
