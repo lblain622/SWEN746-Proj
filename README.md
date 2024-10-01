@@ -103,7 +103,7 @@ This section describes the features of the application.
     * The search should return an exact list of candidates matching the user's keywords. 
     * The search request should be shown in a suggestion tab with an organized and clear UI. 
      
-  *Scheduling the services 
+  * Scheduling the services 
     * The booking listed should be shown accurately on the user's "schedule" tab. 
     * The availability must exactly match the user's entered timeframed. 
 
