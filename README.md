@@ -96,8 +96,12 @@ This section describes the features of the application.
 
 ### Acceptance Criteria
 
-  * MVP name
-    * Acceptance criteria
+  * Register
+    * The user create his account and after that it should return a message of creation success
+    * All the inputs should have a message of validation to guide the user
+   
+  * Login
+    * The user login succefully into the system, the system returns a message of success
       
   * Filtering / Searching services 
     * The search should return an exact list of candidates matching the user's keywords. 
