@@ -109,7 +109,13 @@ This section describes the features of the application.
      
   * Scheduling the services 
     * The booking listed should be shown accurately on the user's "schedule" tab. 
-    * The availability must exactly match the user's entered timeframed. 
+    * The availability must exactly match the user's entered timeframed.
+  * Manage profile
+    * Users will be able to verify that they are a student to other users if the use an non edu account
+    * Users will be able to update their profile info such as name, school, and schefule
+  * Manage services
+    * Students will be able to see all avaible freelances for their selected sernice
+    * Freelances will be able to create,update,and delete their service posting
 
 
 ## Architecture and Design
