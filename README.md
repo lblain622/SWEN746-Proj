@@ -122,6 +122,12 @@ This section describes the features of the application.
     * Users will receive a notification when a user sends a message.
   * Simple messaging:
     * Users can send and receive messages between clients and freelancers within the platform.
+  * Review/ Rating System
+    * Students should be able to rate the freelancer on a scale (e.g., 1 to 5 stars).
+    * After they rate the service, students should be able to provide their feedback.
+  * Payment
+    * Students should be able to select a payment method (e.g., credit/debit card, PayPal) securely through the platform.
+    * After payment completion, students should receive a confirmation receipt within the platform.
 
 
 
