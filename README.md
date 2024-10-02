@@ -144,7 +144,7 @@ This section describes the application architecture.
 ![Use Case Diagram](user_case_diagram_png.png)
 
 ### Domain Model Diagram
-![Use Case Diagram](domain_model_diagaram.png)
+![Domain Model Diagram](domain_diagram.png)
 
 
 ### Class Diagram
