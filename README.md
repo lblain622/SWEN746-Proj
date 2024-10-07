@@ -146,6 +146,8 @@ This section describes the application architecture.
 ### Domain Model Diagram
 ![Domain Model Diagram](domain_diagram.png)
 
+### Sequence Diagram
+![Sequence Model Diagram](sequence_diagram.drawio.png)
 
 ### Class Diagram
 > _Place a class diagram here._
