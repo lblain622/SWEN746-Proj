@@ -132,8 +132,7 @@ This section describes the features of the application.
 
 
 ## Architecture and Design
-
-This section describes the application architecture.
+![Architecture and design](arquitecture-diagram.drawio.png)
 
 ### Software Architecture
 > _Place a architectural diagram here._
