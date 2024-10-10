@@ -18,7 +18,7 @@ export default function GetDataPage() {
 
   return (
     <div>
-      <h1>Datos desde Firebase</h1>
+      <h1>Data from Firebase</h1>
       <ul>
         {data.map((item, index) => (
           <li key={index}>{item.name}</li>
