@@ -149,5 +149,4 @@ This section describes the features of the application.
 ![Sequence Model Diagram](sequence_diagram.drawio.png)
 
 ### Class Diagram
-> _Place a class diagram here._
-> _Describe your class diagram._
+![Class Diagram](Class_Diagram.drawio.png)
