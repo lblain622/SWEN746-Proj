@@ -12,7 +12,8 @@
     "firebase": "^10.14.0",
     "next": "14.2.15",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "student-hustle": "file:"
   },
   "devDependencies": {
     "postcss": "^8",
