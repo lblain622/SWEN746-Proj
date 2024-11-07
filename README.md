@@ -132,8 +132,7 @@ This section describes the features of the application.
 
 
 ## Architecture and Design
-
-This section describes the application architecture.
+![Architecture and design](arquitecture-diagram.drawio.png)
 
 ### Software Architecture
 > _Place a architectural diagram here._
@@ -150,5 +149,4 @@ This section describes the application architecture.
 ![Sequence Model Diagram](sequence_diagram.drawio.png)
 
 ### Class Diagram
-> _Place a class diagram here._
-> _Describe your class diagram._
+![Class Diagram](Class_Diagram.drawio.png)
