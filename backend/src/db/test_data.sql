@@ -10,11 +10,31 @@ INSERT INTO profiles (first_name, last_name, age, sex, student_id, user_id) VALU
 ('Jane', 'Smith', 25, 'F', 'S67890', 2),
 ('Michael', 'Johnson', 35, 'M', 'S11223', 3);
 
+-- INSERT Data to Category of SERVICES
+INSERT INTO category_services(title) VALUES
+('Tutoring'),
+('Cooking'),
+('Grocery Shopping'),
+('Resume Writing'),
+('Job Prep & Assistance'),
+('Video Editing'),
+('Note Taking/Summarizing'),
+('Homework Help'),
+('Exam Prep'),
+('Pet Sitting'),
+('Tech Support'),
+('Fitness Training'),
+('Web & App Development'),
+('Art & Design'),
+('Photography');
+
+
+
 -- INSERT DATA TO SERVICES
-INSERT INTO services (title, content, price, user_id) VALUES
-('Web Development', 'Custom web development service', 500.00, 1),
-('Graphic Design', 'Logo and branding services', 300.00, 2),
-('SEO Optimization', 'Search engine optimization service', 200.00, 3);
+INSERT INTO services (title,cat_id, content, price, user_id) VALUES
+('Web Development',13,'Custom web development service', 500.00, 1),
+('Graphic Design', 14,'Logo and branding services', 300.00, 2),
+('SEO Optimization',13, 'Search engine optimization service', 200.00, 3);
 
 -- INSERT DATA TO MESSAGES
 INSERT INTO messages (title, content, to_id, from_id) VALUES

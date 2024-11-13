@@ -21,22 +21,31 @@ CREATE TABLE IF NOT EXISTS profiles (
     last_name VARCHAR(100),
     age INT,
     sex VARCHAR(10),
-    student_id VARCHAR(50),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     user_id INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Create Service Category
+CREATE TABLE IF NOT EXISTS category_services (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
 );
 
 -- CREATE TABLE SERVICES
 CREATE TABLE IF NOT EXISTS services (
     id SERIAL PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
+    FOREIGN KEY (cat_id) REFERENCES category_services(id) on DELETE CASCADE
     content TEXT,
     price DECIMAL(10, 2) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     user_id INT NOT NULL,
+
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+
 
 -- CREATE TABLE MESSAGES
 CREATE TABLE IF NOT EXISTS messages (
