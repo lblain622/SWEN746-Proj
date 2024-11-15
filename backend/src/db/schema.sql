@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
     name VARCHAR(100) NOT NULL,
     password VARCHAR(255) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
+
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -23,25 +24,26 @@ CREATE TABLE IF NOT EXISTS profiles (
     sex VARCHAR(10),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     user_id INT NOT NULL,
+    student_id VARCHAR(100) UNIQUE  NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 -- Create Service Category
 CREATE TABLE IF NOT EXISTS category_services (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(100) NOT NULL,
+    title VARCHAR(100) NOT NULL
 );
 
 -- CREATE TABLE SERVICES
 CREATE TABLE IF NOT EXISTS services (
     id SERIAL PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
-    FOREIGN KEY (cat_id) REFERENCES category_services(id) on DELETE CASCADE
     content TEXT,
     price DECIMAL(10, 2) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     user_id INT NOT NULL,
-
+    cat_id int NOT null,
+    FOREIGN KEY (cat_id) REFERENCES category_services(id) on DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
