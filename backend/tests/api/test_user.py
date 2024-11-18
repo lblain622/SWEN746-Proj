@@ -4,7 +4,7 @@ from tests.test_utils import *
 
 class TestUser(unittest.TestCase):
 
-    def setUp(self):  
+    def setUp(self):
         """Initialize DB using API call"""
         post_rest_call(self, 'http://localhost:5000/manage/init')
 
@@ -63,7 +63,7 @@ class TestUser(unittest.TestCase):
     #     )
 
     #     api_result_filtered = [api_result[0], api_result[1], api_result[2], api_result[4]]
-        
+
     #     self.assertEqual(api_result_filtered, expected_result, 'The user is found')
 
     # def test_update_user(self):

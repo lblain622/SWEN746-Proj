@@ -1,8 +1,11 @@
 from flask import Flask
-from flask_restful import Resource, Api
+from flask_restful import  Api
 from api.hello_world import Users
 from api.management import *
-# from api.controllers.UserController import *
+from backend.src.api.controllers.ProfileController import ProfileController
+from backend.src.db.example import rebuild_tables
+from api.controllers.ProfileController import ProfileController
+
 
 app = Flask(__name__)
 api = Api(app)
@@ -15,11 +18,10 @@ api.add_resource(Users, '/') # test to count all users until remove / test...
 
 # APIs ENDPOINTS
 
-# USER
-# api.add_resource(UserCreate, '/user/create')
-# api.add_resource(UserUpdate, '/user/edit/<int:user_id>')
-# api.add_resource(UserGet, '/users/<int:user_id>')
-# api.add_resource(UserDelete, '/user/delete/<int:user_id>')
+
+
+#Profile
+api.add_resource(ProfileController, '/profiles', '/profile/<int:id>')
 
 if __name__ == '__main__':
     rebuild_tables()
