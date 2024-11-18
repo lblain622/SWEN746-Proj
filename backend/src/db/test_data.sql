@@ -27,3 +27,9 @@ INSERT INTO paymentHistory (provider_name, payment_date, amount, user_id, servic
 ('John Doe', '2024-11-01', 500.00, 1, 1),
 ('Jane Smith', '2024-11-05', 300.00, 2, 2),
 ('Michael Johnson', '2024-11-10', 200.00, 3, 3);
+
+-- INSERT DATA TO NOTIFICATIONS
+INSERT INTO notifications (title, content, user_id) VALUES
+('Project Bid Accepted', 'Your bid for the project has been accepted.', 1),
+('New Message', 'You have received a new message from Jane Smith.', 1),
+('Project Update', 'Michael Johnson has updated the project details.', 2);
