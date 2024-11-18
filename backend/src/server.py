@@ -2,6 +2,7 @@ from flask import Flask
 from flask_restful import Resource, Api
 from api.hello_world import Users
 from api.management import *
+from api.controllers.ReviewController import *
 # from api.controllers.UserController import *
 
 app = Flask(__name__)
@@ -20,6 +21,13 @@ api.add_resource(Users, '/') # test to count all users until remove / test...
 # api.add_resource(UserUpdate, '/user/edit/<int:user_id>')
 # api.add_resource(UserGet, '/users/<int:user_id>')
 # api.add_resource(UserDelete, '/user/delete/<int:user_id>')
+
+#API's for reviews 
+api.add_resource(ReviewCreate, '/review/create')
+api.add_resource(ReviewGet, '/reviews/<int:service_id>')
+
+
+
 
 if __name__ == '__main__':
     rebuild_tables()

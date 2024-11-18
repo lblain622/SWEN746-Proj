@@ -27,3 +27,10 @@ INSERT INTO paymentHistory (provider_name, payment_date, amount, user_id, servic
 ('John Doe', '2024-11-01', 500.00, 1, 1),
 ('Jane Smith', '2024-11-05', 300.00, 2, 2),
 ('Michael Johnson', '2024-11-10', 200.00, 3, 3);
+
+-- INSERT DATA TO REVIEWS
+INSERT INTO reviews (rating,feedback, user_id, service_id) VALUES
+(5, 'Excellent service!', 1, 1),
+(4, 'Good work, but room for improvement.', 2, 2),
+(3, 'Average experience.', 3, 3);
+
