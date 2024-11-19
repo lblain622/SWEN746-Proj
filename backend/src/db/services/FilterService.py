@@ -13,15 +13,13 @@ def list_of_services():
 # SERVICE NAME, PRICE RANGE, AND/OR
 def all_services(params):
 
-    query = "SELECT title,content,price FROM services WHERE 1=1"
+    query = "SELECT title,content,TO_CHAR(price, 'FM999999999.00') AS price FROM services WHERE 1=1"
     values = []
-
     if 'service' in params and params['service']:
-        query += " AND title LIKE %s"
+        query += "AND title LIKE %s"
         values.append(f"%%{params['service']}%%")
-
-    if  params['priceMin'] is not None and params['priceMax'] is not None:
-        query += " AND price BETWEEN %s AND %s"
+    if  params.get('priceMin') is not None and params.get('priceMax') is not None:
+        query += "AND price BETWEEN %s AND %s"
         values.extend([params['priceMin'], params['priceMax']])
     elif 'priceMin' in params and params['priceMin'] is not None:
         query += " AND price >= %s"

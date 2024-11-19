@@ -8,9 +8,6 @@ from api.request.SearchRequest import SearchParser
 # The search request should be shown in a suggestion tab with an organized and clear UI.
 
 class Filter(Resource): # sorts allgedly 
-    # def __init__(self):
-    #     self.parser = SearchParser()
-
     def get(self):
         #args = self.parser.parse_args() # works in ThunderClient, does not work in tests
         price = request.args.get('price', default=None,type=float)
@@ -19,10 +16,8 @@ class Filter(Resource): # sorts allgedly
         priceMax = request.args.get('priceMax', default=None, type=float)
         if (priceMin is not None):
             priceMin = round(float(priceMin), 2)
-        if (priceMax  is not None):
-            priceMax = round(float(priceMin), 2)
-        print(priceMin)
-        print(priceMax)
+        if (priceMax is not None):
+            priceMax = round(float(priceMax), 2)
         args = {'price':price, 'service':service, 'priceMin':priceMin, 'priceMax':priceMax}
         result = FilterService.all_services(args)
         return jsonify(result)
