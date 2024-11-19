@@ -8,6 +8,6 @@ def rebuild_tables():
 def list_users():
     query = '''
         SELECT *
-        FROM Users
+        FROM users
     '''
     return exec_get_all(query)
