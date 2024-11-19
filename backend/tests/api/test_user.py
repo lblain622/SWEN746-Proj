@@ -1,15 +1,17 @@
 import unittest
 import json
+
 from tests.test_utils import *
+
 
 class TestUser(unittest.TestCase):
 
-    def setUp(self):  
+    def setUp(self):
         """Initialize DB using API call"""
         post_rest_call(self, 'http://127.0.0.1:5000/manage/init')
 
     def test_login(self):
-        json_body = { 
+        json_body = {
             "name":"John Doe",
             "password":"password123"
         }
@@ -29,7 +31,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(api_result, expected_result, 'Login success')
 
     def test_create_user(self):
-        json_body = { 
+        json_body = {
             "name":"vanecat",
             "password":"kittycat",
             "email":"kittycat@gmail.com",
@@ -41,9 +43,11 @@ class TestUser(unittest.TestCase):
 
         body_json = json.dumps(json_body)
         api_result = post_rest_call(
-            self, 
+
+            self,
             'http://127.0.0.1:5000/create/user',
-            params=body_json, 
+            params=body_json,
+
             post_header={'Content-Type': 'application/json'}
         )
 
@@ -58,13 +62,15 @@ class TestUser(unittest.TestCase):
         ]
 
         api_result = get_rest_call(
-            self, 
-            'http://127.0.0.1:5000/obtain/user/1', 
+
+            self,
+            'http://127.0.0.1:5000/obtain/user/1',
+
             get_header={'Content-Type': 'application/json'}
         )
 
         api_result_filtered = [api_result[0], api_result[1], api_result[2], api_result[3]]
-        
+
         self.assertEqual(api_result_filtered, expected_result, 'The user is found')
 
     def test_update_user(self):
@@ -81,8 +87,10 @@ class TestUser(unittest.TestCase):
         body_json = json.dumps(json_body)
         api_result = put_rest_call(
             self,
-            'http://127.0.0.1:5000/edit/user/1', 
-            params=body_json, 
+
+            'http://127.0.0.1:5000/edit/user/1',
+            params=body_json,
+
             put_header={'Content-Type': 'application/json'}
         )
 

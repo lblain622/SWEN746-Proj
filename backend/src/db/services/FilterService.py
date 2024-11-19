@@ -13,11 +13,19 @@ def list_of_services():
 # SERVICE NAME, PRICE RANGE, AND/OR
 def all_services(params):
 
-    query = "SELECT title,content,TO_CHAR(price, 'FM999999999.00') AS price FROM services WHERE 1=1"
+    query = "SELECT title,content,price FROM services WHERE 1=1 "
     values = []
     if 'service' in params and params['service']:
         query += "AND title LIKE %s"
         values.append(f"%%{params['service']}%%")
+
+    if 'price' in params and params['price'] is not None:
+        if (params['service']):
+            query += " OR price = %s"
+        else:
+            query += " AND price = %s"
+        values.append(params['price'])
+
     if  params.get('priceMin') is not None and params.get('priceMax') is not None:
         query += "AND price BETWEEN %s AND %s"
         values.extend([params['priceMin'], params['priceMax']])
@@ -27,12 +35,11 @@ def all_services(params):
     elif 'priceMax' in params and params['priceMax'] is not None:
         query += " AND price <= %s"
         values.append(params['priceMax'])
-    elif 'price' in params and params['price'] is not None:
-        query += " AND price = %s"
-        values.append(params['price'])
+    
     return exec_get_all(query, values), 200
-
-
+# if ('service' != ''):
+#  query += "OR price = %s"
+# else:
 def get_all_function(params):
     if 'service' in params and params['service'] == "":
         return list_of_services()
@@ -47,7 +54,7 @@ def get_all_function(params):
     elif 'priceMin' in params:
         return get_services_under(params), 200
 
-def get_services(params):  # if price = '' error ... fix this
+def get_services(params):
     SQL = ''' 
         SELECT * 
         From services
