@@ -19,6 +19,5 @@ class Filter(Resource): # sorts allgedly
         priceMin_d = Decimal(priceMin) if priceMin else None
         priceMax_d = Decimal(priceMax) if priceMax else None
         args = {'price':price_d, 'service':service, 'priceMin':priceMin_d, 'priceMax':priceMax_d}
-        print(args)
         result = FilterService.all_services(args)
         return jsonify(result)

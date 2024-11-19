@@ -86,7 +86,19 @@ class TestFilter(unittest.TestCase):
         self.assertEqual(api_result, expected_result, 'Filter service and price.')
 
     def test_filter_service_and_price_exist(self):
-        expected_result = [[], 200]
+        expected_result = [
+        [
+            [
+                "Graphic Design",
+                "Logo and branding services",
+                "300.00"
+            ],
+            [
+                "SEO Optimization",
+                "Search engine optimization service",
+                "200.00"
+            ]
+        ],  200]
         api_result = get_rest_call(
             self, 
             'http://localhost:5000/filter?service=Graphic Design&price=200.00',
