@@ -1,8 +1,7 @@
 from flask import Flask
-from flask_restful import  Api
+from flask_restful import Resource, Api
 from api.hello_world import Users
 from api.management import *
-from backend.src.db.example import rebuild_tables
 from api.controllers.ProfileController import ProfileController
 from api.controllers.UserController import *
 from api.controllers.FilterController import *

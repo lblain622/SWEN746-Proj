@@ -1,7 +1,6 @@
 import unittest
-from backend.src.db.services.ProfileService import *
 import json
-from backend.tests.test_utils import *
+from tests.test_utils import *
 
 class TestProfile(unittest.TestCase):
     def test_GetProfile(self):
@@ -37,7 +36,7 @@ class TestProfile(unittest.TestCase):
             'sex': 'F',
             'user_id': 3,
         }
-        jdata = json.dumps(data);
+        jdata = json.dumps(data)
         result = put_rest_call(self,'http://localhost:5000/profile/3',jdata,put_header={'content-type': 'application/json'})
         msg_expected = {"message": "Profile updated successfully"}
         self.assertEqual(msg_expected,result)

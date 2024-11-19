@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import jsonify
-from ..request.ProfileRequest import  ProfileParser
-from backend.src.db.services import ProfileService
+from db.services import ProfileService
+from api.request.ProfileRequest import  ProfileParser
 
 class ProfileController(Resource):
     def __init__(self):
