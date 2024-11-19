@@ -5,7 +5,7 @@ from db.services import SearchService
 
 from api.request.SearchRequest import SearchParser
 
-# ACCEPTANCE CRITERIA  Filtering / Searching services
+# ACCEPTANCE CRITERIA  Searching services
 # The search should return an exact list of candidates matching the user's keywords.
 # The search request should be shown in a suggestion tab with an organized and clear UI.
 
