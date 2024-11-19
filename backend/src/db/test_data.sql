@@ -7,8 +7,7 @@ INSERT INTO users (name, password, email) VALUES
 -- INSERT DATA TO PROFILES
 INSERT INTO profiles (first_name, last_name, age, sex, student_id, user_id) VALUES
 ('John', 'Doe', 30, 'M', 'S12345', 1),
-('Jane', 'Smith', 25, 'F', 'S67890', 2),
-('Michael', 'Johnson', 35, 'M', 'S11223', 3);
+('Jane', 'Smith', 25, 'F', 'S67890', 2);
 
 -- INSERT Data to Category of SERVICES
 INSERT INTO category_services(title) VALUES

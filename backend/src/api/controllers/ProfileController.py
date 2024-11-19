@@ -4,43 +4,50 @@ from ..request.ProfileRequest import  ProfileParser
 from backend.src.db.services import ProfileService
 
 class ProfileController(Resource):
-    def get(self, user_id):
-        # Fetch the profile using the service
-        profile = ProfileService.get_profile(user_id)
+    def __init__(self):
+        self.parser = ProfileParser()
+
+    def get(self, id):
+        # Fetch the profile using user_id
+
+        profile = ProfileService.get_profile(id)
+
+
         if profile:
-            return jsonify({"profile": profile})
+            return profile, 200
         else:
-            return jsonify({"message": "Profile not found"}), 404
+            return {"message": "Profile not found"}, 404
     def post(self):
         # Parse request data
-        parser = ProfileParser()
-        data = parser.parse_args()
+        try:
+            data = self.parser.parse_args()
+            # Create the profile using the service
+            ProfileService.create_profile(data)
+            return {"message": "Profile Created"}, 200
+        except Exception as e:
+            return {"message":  e}, 500
 
-        # Create the profile using the service
-        profile_id = ProfileService.create_profile(data)
-        if profile_id:
-            return jsonify({"message": "Profile created successfully", "profile_id": profile_id})
-        else:
-            return jsonify({"message": "Error creating profile"}), 500
-    def put(self, profile_id):
-        # Parse request data
-        parser = ProfileParser()
-        data = parser.parse_args()
+    def put(self, id):
+        # Parse request data profile_id
+        try:
+            parser = ProfileParser()
+            data = parser.parse_args()
 
-        # Update the profile using the service
-        success = ProfileService.update_profile(profile_id, data)
-        if success:
-            return jsonify({"message": "Profile updated successfully"})
-        else:
-            return jsonify({"message": "Error updating profile"}), 500
-
-
+            # Update the profile using the service
+            result = ProfileService.update_profile(id, data)
+            if result:
+                return {"message": "Profile updated successfully"},200
+        except Exception as e:
+            return {"message": "Error updating profile"}, 500
 
 
-    def delete(self, user_id):
+
+
+    def delete(self, id):
         # Delete the profile using the service
-        success = ProfileService.delete_profile(user_id)
-        if success:
-            return jsonify({"message": "Profile deleted successfully"})
-        else:
-            return jsonify({"message": "Error deleting profile"}), 500
+        try:
+            ProfileService.delete_profile(id)
+
+            return {"message": "Profile deleted successfully"},200
+        except Exception as e:
+            return {"message": "Error deleting profile"}, 500

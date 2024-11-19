@@ -2,19 +2,20 @@ import os
 
 from ..swen610_db_utils import *
 
-def get_profile(user_id):
+def get_profile(profile_id):
     """
     Fetch the profile of a user based on user_id.
     """
     try:
         query = '''
-        SELECT *
+        SELECT id,first_name,last_name, age, sex, student_id
         FROM profiles
-        JOIN users ON users.id = profiles.user_id
-        WHERE profiles.user_id = %s
+        WHERE user_id = %s;
         '''
         # Execute the query using your database utility
-        result = exec_get_one(query, (user_id,))
+
+        result = exec_get_one(query, (profile_id,))
+
         return result
     except Exception as e:
         print(f"Error fetching profile: {e}")
@@ -34,21 +35,20 @@ def create_profile(data):
     }
     """
     try:
-        query = '''
-        INSERT INTO profiles (first_name, last_name, age, sex, student_id)
-        VALUES (%s, %s, %s, %s, %s)
-        RETURNING user_id
-        '''
+        query = """
+        INSERT INTO profiles (first_name, last_name, age, sex, student_id,user_id)
+        VALUES (%s, %s, %s, %s, %s,%s);
+    
+        """
         values = (
             data['first_name'],
             data['last_name'],
             data['age'],
             data['sex'],
             data['student_id'],
-
+            data['user_id'],
         )
-        profile_id = exec_get_all(query, values)
-        return profile_id
+        profile_id = exec_commit(query, values)
     except Exception as e:
         print(f"Error creating profile: {e}")
         return None
@@ -65,9 +65,8 @@ def update_profile(profile_id, data):
         SET first_name = %s,
             last_name = %s,
             age = %s,
-            sex = %s,
-            student_id = %s
-        WHERE id = %s
+            sex = %s
+        WHERE id = %s;
         '''
 
         values = (
@@ -75,7 +74,6 @@ def update_profile(profile_id, data):
             data['last_name'],
             data['age'],
             data['sex'],
-            data['student_id'],
             profile_id
         )
         exec_commit(query, values)
@@ -89,7 +87,7 @@ def delete_profile(user_id):
     Delete a profile associated with a user_id.
     """
     try:
-        query = '''DELETE FROM profiles WHERE user_id = %s'''
+        query = '''DELETE FROM profiles WHERE user_id = %s;'''
         exec_commit(query, (user_id,))
         return True
     except Exception as e:

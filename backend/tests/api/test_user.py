@@ -1,6 +1,8 @@
 import unittest
 import json
-from tests.test_utils import *
+
+from backend.tests.test_utils import *
+
 
 class TestUser(unittest.TestCase):
 

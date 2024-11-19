@@ -5,7 +5,8 @@ from api.management import *
 from backend.src.api.controllers.ProfileController import ProfileController
 from backend.src.db.example import rebuild_tables
 from api.controllers.ProfileController import ProfileController
-
+from api.controllers.UserController import UserLogin,UserCreate,UserUpdate,UserGet,UserDelete
+from api.controllers.FilterController import *
 
 app = Flask(__name__)
 api = Api(app)
@@ -17,11 +18,19 @@ api.add_resource(Version, '/manage/version') #Management API for checking DB ver
 api.add_resource(Users, '/') # test to count all users until remove / test...
 
 # APIs ENDPOINTS
+api.add_resource(UserLogin, '/login')
+api.add_resource(UserCreate, '/create/user')
+api.add_resource(UserUpdate, '/edit/user/<int:user_id>')
+api.add_resource(UserGet, '/obtain/user/<int:user_id>')
+api.add_resource(UserDelete, '/delete/user/<int:user_id>')
+
+# FILTER
+api.add_resource(Filter, '/filter')
 
 
 
 #Profile
-api.add_resource(ProfileController, '/profiles', '/profile/<int:id>')
+api.add_resource(ProfileController, '/profile', '/profile/<int:id>')
 
 if __name__ == '__main__':
     rebuild_tables()
