@@ -2,10 +2,9 @@ from flask import Flask
 from flask_restful import  Api
 from api.hello_world import Users
 from api.management import *
-from backend.src.api.controllers.ProfileController import ProfileController
 from backend.src.db.example import rebuild_tables
 from api.controllers.ProfileController import ProfileController
-from api.controllers.UserController import UserLogin,UserCreate,UserUpdate,UserGet,UserDelete
+from api.controllers.UserController import *
 from api.controllers.FilterController import *
 
 app = Flask(__name__)
