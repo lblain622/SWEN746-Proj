@@ -6,7 +6,7 @@ class TestFilter(unittest.TestCase):
 
     def setUp(self):  
         """Initialize DB using API call"""
-        post_rest_call(self, 'http://localhost:5000/manage/init')
+        post_rest_call(self, 'http://127.0.0.1:5000/manage/init')
 
     def test_filter(self):
         expected_result = [[
@@ -29,7 +29,7 @@ class TestFilter(unittest.TestCase):
 
         api_result = get_rest_call(
             self,
-            'http://localhost:5000/filter',
+            'http://127.0.0.1:5000/filter',
             get_header={'Content-Type': 'application/json'}
         )
 
@@ -41,7 +41,7 @@ class TestFilter(unittest.TestCase):
         ]
         api_result = get_rest_call(
             self,
-            'http://localhost:5000/filter?service=john_doe',
+            'http://127.0.0.1:5000/filter?service=john_doe',
             get_header={'Content-Type':'application/json'}
         )
         self.assertEqual(api_result, expected_result, 'Filter success')
@@ -54,7 +54,7 @@ class TestFilter(unittest.TestCase):
         ]
         api_result = get_rest_call(
             self,
-            'http://localhost:5000/filter?service=Web Development',
+            'http://127.0.0.1:5000/filter?service=Web Development',
             get_header={'Content-Type':'application/json'}
         )
         self.assertEqual(api_result, expected_result, 'Filter success')
@@ -62,7 +62,7 @@ class TestFilter(unittest.TestCase):
     def test_filter_price(self):
         expected_result = [[],200]
         api_result = get_rest_call(
-            self, 'http://localhost:5000/filter?price=50.01',
+            self, 'http://127.0.0.1:5000/filter?price=50.01',
             get_header={'Content-Type':'application/json'}            
         )
         self.assertEqual(api_result, expected_result, 'Filter success')
@@ -70,7 +70,7 @@ class TestFilter(unittest.TestCase):
     def test_filter_price_exists(self):
         expected_result = [[['Graphic Design', 'Logo and branding services', '300.00']], 200]
         api_result = get_rest_call(
-            self, 'http://localhost:5000/filter?price=300.00',
+            self, 'http://127.0.0.1:5000/filter?price=300.00',
             get_header={'Content-Type':'application/json'}            
         )
 
@@ -80,7 +80,7 @@ class TestFilter(unittest.TestCase):
         expected_result= [[], 200]
         api_result = get_rest_call(
             self, 
-            'http://localhost:5000/filter?service=john_doe&price=50.01',
+            'http://127.0.0.1:5000/filter?service=john_doe&price=50.01',
             get_header={'Content-Type':'application/json'}
         )
         self.assertEqual(api_result, expected_result, 'Filter service and price.')
@@ -101,7 +101,7 @@ class TestFilter(unittest.TestCase):
         ],  200]
         api_result = get_rest_call(
             self, 
-            'http://localhost:5000/filter?service=Graphic Design&price=200.00',
+            'http://127.0.0.1:5000/filter?service=Graphic Design&price=200.00',
             get_header={'Content-Type':'application/json'}
         )
         self.assertEqual(api_result, expected_result, 'Filter service and price.')
@@ -113,7 +113,7 @@ class TestFilter(unittest.TestCase):
         ], 200]
         api_result = get_rest_call(
             self, 
-            'http://localhost:5000/filter?priceMin=200.00&priceMax=300.00',
+            'http://127.0.0.1:5000/filter?priceMin=200.00&priceMax=300.00',
             get_header={'Content-Type':'application/json'}
         )
 
