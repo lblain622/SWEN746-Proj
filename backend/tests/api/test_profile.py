@@ -7,7 +7,7 @@ class TestProfile(unittest.TestCase):
         print("Get a profile")
 
         expected = [1,'John','Doe',30,'M','S12345']
-        actual = get_rest_call(self,'http://localhost:5000/profile/1')
+        actual = get_rest_call(self,'http://127.0.0.1:5000/profile/1')
         self.assertEqual(expected,actual)
 
 
@@ -23,7 +23,7 @@ class TestProfile(unittest.TestCase):
         }
         jdata = json.dumps(data)
 
-        result=post_rest_call(self,'http://localhost:5000/profile',params=jdata,post_header={'content-type': 'application/json'})
+        result=post_rest_call(self,'http://127.0.0.1:5000/profile',params=jdata,post_header={'content-type': 'application/json'})
         msg_expected = {"message": "Profile Created"}
         self.assertEqual(msg_expected,result)
 
@@ -37,12 +37,12 @@ class TestProfile(unittest.TestCase):
             'user_id': 3,
         }
         jdata = json.dumps(data)
-        result = put_rest_call(self,'http://localhost:5000/profile/3',jdata,put_header={'content-type': 'application/json'})
+        result = put_rest_call(self,'http://127.0.0.1:5000/profile/3',jdata,put_header={'content-type': 'application/json'})
         msg_expected = {"message": "Profile updated successfully"}
         self.assertEqual(msg_expected,result)
 
     def test_DeleteProfile(self):
         print("Deleting a Profile")
-        result = delete_rest_call(self,'http://localhost:5000/profile/2')
+        result = delete_rest_call(self,'http://127.0.0.1:5000/profile/2')
         msg_expected = {"message": "Profile deleted successfully"}
         self.assertEqual(msg_expected,result)

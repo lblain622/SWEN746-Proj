@@ -7,33 +7,14 @@ INSERT INTO users (name, password, email) VALUES
 -- INSERT DATA TO PROFILES
 INSERT INTO profiles (first_name, last_name, age, sex, student_id, user_id) VALUES
 ('John', 'Doe', 30, 'M', 'S12345', 1),
-('Jane', 'Smith', 25, 'F', 'S67890', 2);
-
--- INSERT Data to Category of SERVICES
-INSERT INTO category_services(title) VALUES
-('Tutoring'),
-('Cooking'),
-('Grocery Shopping'),
-('Resume Writing'),
-('Job Prep & Assistance'),
-('Video Editing'),
-('Note Taking/Summarizing'),
-('Homework Help'),
-('Exam Prep'),
-('Pet Sitting'),
-('Tech Support'),
-('Fitness Training'),
-('Web & App Development'),
-('Art & Design'),
-('Photography');
-
-
+('Jane', 'Smith', 25, 'F', 'S67890', 2),
+('Michael', 'Johnson', 35, 'M', 'S11223', 3);
 
 -- INSERT DATA TO SERVICES
-INSERT INTO services (title,cat_id, content, price, user_id) VALUES
-('Web Development',13,'Custom web development service', 500.00, 1),
-('Graphic Design', 14,'Logo and branding services', 300.00, 2),
-('SEO Optimization',13, 'Search engine optimization service', 200.00, 3);
+INSERT INTO services (title, content, price, user_id) VALUES
+('Web Development', 'Custom web development service', 500.00, 1),
+('Graphic Design', 'Logo and branding services', 300.00, 2),
+('SEO Optimization', 'Search engine optimization service', 200.00, 3);
 
 -- INSERT DATA TO MESSAGES
 INSERT INTO messages (title, content, to_id, from_id) VALUES
@@ -46,3 +27,9 @@ INSERT INTO paymentHistory (provider_name, payment_date, amount, user_id, servic
 ('John Doe', '2024-11-01', 500.00, 1, 1),
 ('Jane Smith', '2024-11-05', 300.00, 2, 2),
 ('Michael Johnson', '2024-11-10', 200.00, 3, 3);
+
+-- INSERT DATA TO NOTIFICATIONS
+INSERT INTO notifications (title, content, user_id) VALUES
+('Project Bid Accepted', 'Your bid for the project has been accepted.', 1),
+('New Message', 'You have received a new message from Jane Smith.', 1),
+('Project Update', 'Michael Johnson has updated the project details.', 2);
