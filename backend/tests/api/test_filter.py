@@ -2,15 +2,6 @@ import json
 import unittest
 from tests.test_utils import *
 
-import datetime
-from time import gmtime
-import pytz 
-
-now = datetime.datetime.now() # Get the current date and time
-gmt = pytz.timezone("US/Pacific")
-gmt_time = now.astimezone(gmt)
-formatted_date = gmt_time.strftime("%a, %d %b %Y %H:%M:%S GMT") # Format the date and time similar to SQL
-
 class TestFilter(unittest.TestCase):
 
     def setUp(self):  
@@ -20,28 +11,19 @@ class TestFilter(unittest.TestCase):
     def test_filter(self):
         expected_result = [[
             [
-                1,
                 "Web Development",
                 "Custom web development service",
-                "500.00",
-                formatted_date,
-                1
+                "500.00"
             ],
             [
-                2,
                 "Graphic Design",
                 "Logo and branding services",
-                "300.00",
-                formatted_date,
-                2
+                "300.00"
             ],
             [
-                3,
                 "SEO Optimization",
                 "Search engine optimization service",
-                "200.00",
-                formatted_date,
-                3
+                "200.00"
             ]
         ], 200]
 
@@ -50,7 +32,7 @@ class TestFilter(unittest.TestCase):
             'http://localhost:5000/filter',
             get_header={'Content-Type': 'application/json'}
         )
-#        print(api_result)
+
         self.assertEqual(api_result, expected_result, 'Filter success')
 
     def test_filter_service(self):
@@ -84,12 +66,13 @@ class TestFilter(unittest.TestCase):
     def test_filter_price_range(self):
 
         expected_result = [[
-            [2, 'Graphic Design', 'Logo and branding services', 300.00, formatted_date, 2],
-            [3, 'SEO Optimization', 'Search engine optimization service', 200.00, formatted_date, 3]
+            ['Graphic Design', 'Logo and branding services', 300.00],
+            ['SEO Optimization', 'Search engine optimization service', 200.00]
         ], 200]
         api_result = get_rest_call(
             self, 
-            'http://localhost:5000/filter?priceMin=200.0&priceMax=300.0',
+            'http://localhost:5000/filter?priceMin=200.00&priceMax=300.00',
             get_header={'Content-Type':'application/json'}
         )
+        print(api_result)
         self.assertEqual(api_result, expected_result, "The price is in the range.")
