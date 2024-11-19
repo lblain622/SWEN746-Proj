@@ -1,13 +1,6 @@
 import os
 from ..swen610_db_utils import *
 
-
-#INSERT INTO services (title, content, price, user_id) VALUES
-#('Web Development', 'Custom web development service', 500.00, 1),
-#('Graphic Design', 'Logo and branding services', 300.00, 2),
-#('SEO Optimization', 'Search engine optimization service', 200.00, 3);
-# likes title
-# likes price <
 def list_of_services():
     SQL = '''
         SELECT * 
@@ -19,7 +12,8 @@ def list_of_services():
 # BETWEEN PRICE RANGE AND SERVICE NAME 
 # SERVICE NAME, PRICE RANGE, AND/OR
 def all_services(params):
-    query = "SELECT * FROM services WHERE 1=1"
+
+    query = "SELECT title,content,price FROM services WHERE 1=1"
     values = []
 
     if 'service' in params and params['service']:
@@ -54,7 +48,6 @@ def get_all_function(params):
         return get_services_by_range(params), 200
     elif 'priceMin' in params:
         return get_services_under(params), 200
-    
 
 def get_services(params):  # if price = '' error ... fix this
     SQL = ''' 
