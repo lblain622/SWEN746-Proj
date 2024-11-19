@@ -13,7 +13,7 @@ def list_of_services():
 # SERVICE NAME, PRICE RANGE, AND/OR
 def all_services(params):
 
-    query = "SELECT title,content,price FROM services WHERE 1=1"
+    query = "SELECT title,content,price FROM services WHERE 1=1 "
     values = []
     if 'service' in params and params['service']:
         query += "AND title LIKE %s"
