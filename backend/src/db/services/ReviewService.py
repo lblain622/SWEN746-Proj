@@ -6,7 +6,7 @@ def create_review(data):
         VALUES (%s, %s, %s, %s);
     '''
     exec_commit(query, (data['rating'], data['feedback'], data['user_id'], data['service_id']))
-    return {"message": "Review created successfully"}, 200
+    return {"message": "Review created successfully"}
 
 def get_reviews(service_id):
     query = '''

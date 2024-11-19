@@ -1,15 +1,10 @@
 -- DELETE TABLES
-DROP SCHEMA IF EXISTS StudentHustle CASCADE;
-DROP TABLE IF EXISTS paymentHistory CASCADE;
-DROP TABLE IF EXISTS messages CASCADE;
-DROP TABLE IF EXISTS services CASCADE;
-DROP TABLE IF EXISTS profiles CASCADE;
-DROP TABLE IF EXISTS reviews CASCADE;
-DROP TABLE IF EXISTS users CASCADE;
-
-CREATE SCHEMA StudentHustle;
-SET default_tablespace = '';
-SET default_with_oids = false;
+DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS paymentHistory;
+DROP TABLE IF EXISTS messages;
+DROP TABLE IF EXISTS services;
+DROP TABLE IF EXISTS profiles;
+DROP TABLE IF EXISTS users;
 
 -- CREATE TABLE USERS
 CREATE TABLE IF NOT EXISTS users (
@@ -67,14 +62,14 @@ CREATE TABLE IF NOT EXISTS paymentHistory (
     FOREIGN KEY (service_id) REFERENCES services(id) ON DELETE CASCADE
 );
 
+-- CREATE TABLE REVIEWS
 CREATE TABLE IF NOT EXISTS reviews (
     id SERIAL PRIMARY KEY,
     rating INT CHECK (rating >= 1 AND rating <= 5) NOT NULL,
     feedback TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     user_id INT NOT NULL,
     service_id INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ,
     FOREIGN KEY (service_id) REFERENCES services(id) ON DELETE CASCADE
 );
 

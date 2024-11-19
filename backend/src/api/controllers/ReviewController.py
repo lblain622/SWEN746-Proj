@@ -11,7 +11,7 @@ class ReviewCreate(Resource):
         args = self.parser.parse_args()
         new_review = ReviewService.create_review(args)
         
-        return new_review
+        return jsonify(new_review),200
 
 class ReviewGet(Resource):
     def get(self, service_id):
