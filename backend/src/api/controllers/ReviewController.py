@@ -11,8 +11,20 @@ class ReviewCreate(Resource):
         args = self.parser.parse_args()
         new_review = ReviewService.create_review(args)
         
-        return jsonify(new_review),200
+        return jsonify(new_review)
 
 class ReviewGet(Resource):
-    def get(self, service_id):
-        return jsonify(ReviewService.get_reviews(service_id))
+    def get(self, review_id):
+        return jsonify(ReviewService.get_reviews(review_id))
+
+class ReviewUpdate(Resource):
+    def __init__(self):
+        self.parser = ReviewParser()
+
+    def put(self, review_id):
+        args = self.parser.parse_args()
+        return jsonify(ReviewService.update_review(review_id, args))
+    
+class ReviewDelete(Resource):
+    def delete(self, review_id):
+        return jsonify(ReviewService.delete_review(review_id))

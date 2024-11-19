@@ -28,8 +28,11 @@ api.add_resource(UserDelete, '/delete/user/<int:user_id>')
 api.add_resource(Filter, '/filter')
 
 #API's for reviews 
-api.add_resource(ReviewCreate, '/review/create')
-api.add_resource(ReviewGet, '/reviews/<int:service_id>')
+api.add_resource(ReviewCreate, '/create/review')
+api.add_resource(ReviewGet, '/obtain/review/<int:review_id>')
+api.add_resource(ReviewUpdate, '/edit/review/<int:review_id>')
+api.add_resource(ReviewDelete, '/delete/review/<int:review_id>')
+
 
 if __name__ == '__main__':
     rebuild_tables()

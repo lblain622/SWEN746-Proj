@@ -6,7 +6,7 @@ class TestUser(unittest.TestCase):
 
     def setUp(self):  
         """Initialize DB using API call"""
-        post_rest_call(self, 'http://localhost:5000/manage/init')
+        post_rest_call(self, 'http://127.0.0.1:5000/manage/init')
 
     def test_login(self):
         json_body = { 
@@ -21,7 +21,7 @@ class TestUser(unittest.TestCase):
         body_json = json.dumps(json_body)
         api_result = post_rest_call(
             self,
-            'http://localhost:5000/login',
+            'http://127.0.0.1:5000/login',
             params=body_json,
             post_header={'Content-Type': 'application/json'}
         )
@@ -42,7 +42,7 @@ class TestUser(unittest.TestCase):
         body_json = json.dumps(json_body)
         api_result = post_rest_call(
             self, 
-            'http://localhost:5000/create/user',
+            'http://127.0.0.1:5000/create/user',
             params=body_json, 
             post_header={'Content-Type': 'application/json'}
         )
@@ -59,7 +59,7 @@ class TestUser(unittest.TestCase):
 
         api_result = get_rest_call(
             self, 
-            'http://localhost:5000/obtain/user/1', 
+            'http://127.0.0.1:5000/obtain/user/1', 
             get_header={'Content-Type': 'application/json'}
         )
 
@@ -81,7 +81,7 @@ class TestUser(unittest.TestCase):
         body_json = json.dumps(json_body)
         api_result = put_rest_call(
             self,
-            'http://localhost:5000/edit/user/1', 
+            'http://127.0.0.1:5000/edit/user/1', 
             params=body_json, 
             put_header={'Content-Type': 'application/json'}
         )
@@ -95,7 +95,7 @@ class TestUser(unittest.TestCase):
 
         api_result = delete_rest_call(
             self,
-            'http://localhost:5000/delete/user/1',
+            'http://127.0.0.1:5000/delete/user/1',
             delete_header={'Content-Type': 'application/json'}
         )
 
