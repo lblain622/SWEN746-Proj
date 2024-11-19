@@ -2,7 +2,11 @@ from flask import Flask
 from flask_restful import Resource, Api
 from api.hello_world import Users
 from api.management import *
+
 from api.controllers.ProfileController import ProfileController
+
+from api.controllers.ReviewController import *
+
 from api.controllers.UserController import *
 from api.controllers.FilterController import *
 
@@ -27,8 +31,17 @@ api.add_resource(Filter, '/filter')
 
 
 
+
 #Profile
 api.add_resource(ProfileController, '/profile', '/profile/<int:id>')
+
+
+#API's for reviews 
+api.add_resource(ReviewCreate, '/create/review')
+api.add_resource(ReviewGet, '/obtain/review/<int:review_id>')
+api.add_resource(ReviewUpdate, '/edit/review/<int:review_id>')
+api.add_resource(ReviewDelete, '/delete/review/<int:review_id>')
+
 
 if __name__ == '__main__':
     rebuild_tables()

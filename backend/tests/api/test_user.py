@@ -43,9 +43,11 @@ class TestUser(unittest.TestCase):
 
         body_json = json.dumps(json_body)
         api_result = post_rest_call(
+
             self,
             'http://127.0.0.1:5000/create/user',
             params=body_json,
+
             post_header={'Content-Type': 'application/json'}
         )
 
@@ -60,8 +62,10 @@ class TestUser(unittest.TestCase):
         ]
 
         api_result = get_rest_call(
+
             self,
             'http://127.0.0.1:5000/obtain/user/1',
+
             get_header={'Content-Type': 'application/json'}
         )
 
@@ -83,8 +87,10 @@ class TestUser(unittest.TestCase):
         body_json = json.dumps(json_body)
         api_result = put_rest_call(
             self,
+
             'http://127.0.0.1:5000/edit/user/1',
             params=body_json,
+
             put_header={'Content-Type': 'application/json'}
         )
 

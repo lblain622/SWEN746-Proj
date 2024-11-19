@@ -1,4 +1,5 @@
 -- DELETE TABLES
+
 DROP TABLE IF EXISTS paymentHistory CASCADE;
 DROP TABLE IF EXISTS messages CASCADE;
 DROP TABLE IF EXISTS services CASCADE;
@@ -6,6 +7,7 @@ DROP TABLE IF EXISTS profiles CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 
 DROP TABLE IF EXISTS notifications CASCADE;
+
 
 -- CREATE TABLE USERS
 CREATE TABLE IF NOT EXISTS users (
@@ -63,6 +65,7 @@ CREATE TABLE IF NOT EXISTS paymentHistory (
     FOREIGN KEY (service_id) REFERENCES services(id) ON DELETE CASCADE
 );
 
+
 -- CREATE TABLE NOTIFICATIONS
 CREATE TABLE IF NOT EXISTS notifications (
     id SERIAL PRIMARY KEY,
@@ -72,3 +75,16 @@ CREATE TABLE IF NOT EXISTS notifications (
     user_id INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+-- CREATE TABLE REVIEWS
+CREATE TABLE IF NOT EXISTS reviews (
+    id SERIAL PRIMARY KEY,
+    rating INT CHECK (rating >= 1 AND rating <= 5) NOT NULL,
+    feedback TEXT,
+    user_id INT NOT NULL,
+    service_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ,
+    FOREIGN KEY (service_id) REFERENCES services(id) ON DELETE CASCADE
+);
+
+
