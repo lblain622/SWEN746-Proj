@@ -13,7 +13,9 @@ def get_reviews(review_id):
         SELECT * FROM reviews
         WHERE id = %s;
     '''
-    return exec_get_all(query, (review_id,))
+    output = exec_get_all(query, (review_id,))
+    print(output)
+    return output
 
 def update_review(review_id, data):
     query = '''

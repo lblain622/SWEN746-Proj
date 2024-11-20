@@ -38,6 +38,7 @@ def exec_get_all(sql, args={}):
 
     list_of_tuples = cur.fetchall()
     conn.close()
+    print(list_of_tuples)
     return list_of_tuples
 
 def exec_commit(sql, args={}):
