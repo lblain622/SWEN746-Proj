@@ -37,22 +37,6 @@ def all_services(params):
         values.append(params['priceMax'])
     
     return exec_get_all(query, values), 200
-# if ('service' != ''):
-#  query += "OR price = %s"
-# else:
-def get_all_function(params):
-    if 'service' in params and params['service'] == "":
-        return list_of_services()
-    elif 'service' in params and params['service']:
-        return get_services(params), 200
-    elif 'service' in params and 'price' in params and params['service'] and params['price']:
-        return get_services_prices(params), 200
-    if ('price' in params and params['price'] != ""):
-        return get_prices(), 200
-    elif 'priceMin' in params and 'priceMax' in params:
-        return get_services_by_range(params), 200
-    elif 'priceMin' in params:
-        return get_services_under(params), 200
 
 def get_services(params):
     SQL = ''' 
