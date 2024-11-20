@@ -18,6 +18,7 @@ class Filter(Resource): # sorts allgedly
         price_d = Decimal(price) if price else None
         priceMin_d = Decimal(priceMin) if priceMin else None
         priceMax_d = Decimal(priceMax) if priceMax else None
-        args = {'price':price_d, 'service':service, 'priceMin':priceMin_d, 'priceMax':priceMax_d}
+        slug = service.replace('-',' ') if service else None 
+        args = {'price':price_d, 'service':slug, 'priceMin':priceMin_d, 'priceMax':priceMax_d}
         result = FilterService.all_services(args)
         return jsonify(result)
