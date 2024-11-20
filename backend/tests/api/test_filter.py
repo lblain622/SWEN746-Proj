@@ -55,7 +55,9 @@ class TestFilter(unittest.TestCase):
         ]
         api_result = get_rest_call(
             self,
+
             'http://localhost:5000/filter?service=Web Development',
+
 
             get_header={'Content-Type':'application/json'}
         )
@@ -103,7 +105,9 @@ class TestFilter(unittest.TestCase):
         ],  200]
         api_result = get_rest_call(
             self, 
+
             'http://localhost:5000/filter?service=Graphic Design&price=200.00',
+
             get_header={'Content-Type':'application/json'}
         )
         self.assertEqual(api_result, expected_result, 'Filter service and price.')
