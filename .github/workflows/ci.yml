@@ -11,6 +11,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     services:
       postgres:
         image: postgres:14
@@ -44,28 +45,23 @@ jobs:
       run: |
         cp backend/config/github-credentials.yml backend/config/db.yml
 
-    - name: Wait for PostgreSQL to be ready
-      run: |
-        until pg_isready -h postgres -p 5432 -U swen610; do
-          echo "Waiting for PostgreSQL to be ready..."
-          sleep 2
-        done
-
     - name: Display Python version
       run: |
         python3 --version
 
+    - name: Wait for PostgreSQL to be ready
+      run: |
+        echo "Waiting for PostgreSQL to be ready..."
+        until pg_isready -h localhost -p 5432 -U swen610 -d swen610; do
+          echo "Waiting for PostgreSQL..."
+          sleep 2
+        done
+        echo "PostgreSQL is ready!"
+
     - name: Start server
       run: |
         python3 backend/src/server.py &
-      env:
-        POSTGRES_DB: swen610
-        POSTGRES_USER: swen610
-        POSTGRES_PASSWORD: qwerty123
-
-    - name: Wait for server to start
-      run: sleep 3
-
+      
     - name: Run unit tests
       run: |
         python3 -m unittest discover -s backend/tests -p "*.py" -v
