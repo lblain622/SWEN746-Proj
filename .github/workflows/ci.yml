@@ -42,7 +42,14 @@ jobs:
 
     - name: Copy credentials
       run: |
-        cp backend/config/github-credentials.yml backend/config/db.yml  # Copia el archivo de configuración
+        cp backend/config/github-credentials.yml backend/config/db.yml
+
+    - name: Wait for PostgreSQL to be ready
+      run: |
+        until pg_isready -h postgres -p 5432 -U swen610; do
+          echo "Waiting for PostgreSQL to be ready..."
+          sleep 2
+        done
 
     - name: Display Python version
       run: |
@@ -50,15 +57,15 @@ jobs:
 
     - name: Start server
       run: |
-        python3 backend/src/server.py &  # Inicia el servidor antes de las pruebas
+        python3 backend/src/server.py &
       env:
         POSTGRES_DB: swen610
         POSTGRES_USER: swen610
         POSTGRES_PASSWORD: qwerty123
 
     - name: Wait for server to start
-      run: sleep 3  # Espera un poco para asegurarse de que el servidor esté listo
+      run: sleep 3
 
     - name: Run unit tests
       run: |
-        python3 -m unittest discover -s backend/tests -p "*.py" -v  # Corre las pruebas unitarias
+        python3 -m unittest discover -s backend/tests -p "*.py" -v
