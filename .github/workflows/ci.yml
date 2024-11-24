@@ -43,25 +43,20 @@ jobs:
 
     - name: Copy credentials
       run: |
-        cp backend/config/github-credentials.yml backend/config/db.yml
+        cp config/github-credentials.yml config/db.yml
 
     - name: Display Python version
       run: |
         python3 --version
 
-    - name: Wait for PostgreSQL to be ready
-      run: |
-        echo "Waiting for PostgreSQL to be ready..."
-        until pg_isready -h localhost -p 5432 -U swen610 -d swen610; do
-          echo "Waiting for PostgreSQL..."
-          sleep 2
-        done
-        echo "PostgreSQL is ready!"
-
     - name: Start server
       run: |
-        python3 backend/src/server.py &
-      
+        cd $GITHUB_WORKSPACE/backend
+        python3 src/server.py &
+
+    - name: Wait for PostgreSQL to start
+      run: sleep 5
+
     - name: Run unit tests
       run: |
         python3 -m unittest discover -s backend/tests -p "*.py" -v
