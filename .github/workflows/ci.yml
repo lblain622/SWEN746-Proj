@@ -43,7 +43,7 @@ jobs:
 
     - name: Copy credentials
       run: |
-        cp backend/config/github-credentials.yml backend/config/db.yml
+        cp $GITHUB_WORKSPACE/backend/config/github-credentials.yml $GITHUB_WORKSPACE/backend/config/db.yml
 
     - name: Display Python version
       run: |
