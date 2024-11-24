@@ -1,0 +1,5 @@
+host: postgres
+database: swen610
+user: swen610
+password: qwerty123
+port: 5432
