@@ -43,7 +43,7 @@ jobs:
 
     - name: Copy credentials
       run: |
-        cp $GITHUB_WORKSPACE/backend/config/github-credentials.yml $GITHUB_WORKSPACE/backend/config/db.yml
+        cp backend/config/github-credentials.yml backend/config/db.yml
 
     - name: Display Python version
       run: |
@@ -51,7 +51,7 @@ jobs:
 
     - name: Start server
       run: |
-        cd $GITHUB_WORKSPACE/backend
+        cd backend
         python3 src/server.py &
 
     - name: Wait for PostgreSQL to start
@@ -59,4 +59,4 @@ jobs:
 
     - name: Run unit tests
       run: |
-        python3 -m unittest discover -s backend/tests -p "*.py" -v
+        python3 -m unittest -v
