@@ -48,6 +48,13 @@ jobs:
       run: |
         python3 --version
 
+    - name: Wait for PostgreSQL to be ready
+      run: |
+        until pg_isready -h postgres -U swen610 -d swen610; do
+          echo "Waiting for PostgreSQL to be ready..."
+          sleep 2
+        done
+
     - name: Start server
       run: |
         python3 backend/src/server.py &
@@ -55,9 +62,10 @@ jobs:
         POSTGRES_DB: swen610
         POSTGRES_USER: swen610
         POSTGRES_PASSWORD: qwerty123
+        POSTGRES_HOST: postgres
 
     - name: Wait for server to start
-      run: sleep 3
+      run: sleep 5  # Asegúrate de que el servidor tenga tiempo para levantarse
 
     - name: Run unit tests
       run: |
