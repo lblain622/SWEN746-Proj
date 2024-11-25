@@ -40,6 +40,7 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install -r backend/requirements.txt
+        pip install pytest-cov
 
     - name: Copy credentials
       run: |
@@ -62,3 +63,7 @@ jobs:
       run: |
         cd backend
         python3 -m unittest -v
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
