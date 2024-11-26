@@ -63,15 +63,14 @@ jobs:
         cd backend
         python3 -m unittest -v
 
-    # GeneraciÃ³n de cobertura
-    - name: Run coverage
+    - name: Generate Report
       run: |
-        cd backend
-        coverage run --source=backend -m unittest discover
-        coverage xml  # Genera el reporte de cobertura en XML
+        pip install coverage
+        coverage run -m unittest
+    - name: Upload Coverage to Codecov
+      uses: codecov/codecov-action@v4
 
-    # Subir reporte de cobertura a Codecov
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v4.0.1
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4
       with:
-        file: backend/coverage.xml  # Ruta a tu archivo XML generado
+        token: ${{ secrets.CODECOV_TOKEN }}
