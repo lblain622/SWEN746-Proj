@@ -65,8 +65,8 @@ jobs:
         python3 -m unittest -v
     - name: Generate Coverage Report
       run: |
-        coverage report
-        coverage xml
+        python -m coverage report
+        python -m coverage xml
     - name: Upload coverage reports to Codecov
       run: |
         # Replace `linux` below with the appropriate OS
