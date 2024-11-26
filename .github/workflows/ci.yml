@@ -66,6 +66,7 @@ jobs:
 
     - name: Generate Coverage Report
       run: |
+        coverage report
         coverage xml  # Genera el reporte de cobertura en formato XML
 
     - name: Upload coverage reports to Codecov
