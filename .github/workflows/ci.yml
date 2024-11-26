@@ -62,6 +62,10 @@ jobs:
       run: |
         cd backend
         python3 -m unittest -v
+    - name: Generate Coverage Report
+      run: |
+        coverage report
+        coverage xml
     - name: Upload coverage reports to Codecov
       run: |
         # Replace `linux` below with the appropriate OS
