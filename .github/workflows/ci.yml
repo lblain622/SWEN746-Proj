@@ -40,7 +40,6 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install -r backend/requirements.txt
-        pip install coverage
 
     - name: Copy credentials
       run: |
@@ -62,15 +61,17 @@ jobs:
     - name: Run unit tests
       run: |
         cd backend
-        python -m coverage run --source=. -m unittest discover -s tests -v
-    - name: Generate Coverage Report
+        python3 -m unittest -v
+
+    # GeneraciÃ³n de cobertura
+    - name: Run coverage
       run: |
-        python -m coverage report
-        python -m coverage xml
-    - name: Upload coverage reports to Codecov
-      run: |
-        # Replace `linux` below with the appropriate OS
-        # Options are `alpine`, `linux`, `macos`, `windows`
-        curl -Os https://cli.codecov.io/latest/linux/codecov
-        chmod +x codecov
-        ./codecov --verbose upload-process --fail-on-error -t ${{ secrets.CODECOV_TOKEN }} -n 'service'-${{ github.run_id }} -F service -f coverage-service.xml
+        cd backend
+        coverage run --source=backend -m unittest discover
+        coverage xml  # Genera el reporte de cobertura en XML
+
+    # Subir reporte de cobertura a Codecov
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        file: backend/coverage.xml  # Ruta a tu archivo XML generado
