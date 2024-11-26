@@ -40,7 +40,6 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install -r backend/requirements.txt
-        pip install coverage  # Instala la herramienta de cobertura
 
     - name: Copy credentials
       run: |
@@ -62,14 +61,11 @@ jobs:
     - name: Run unit tests
       run: |
         cd backend
-        coverage run --source=. -m unittest discover -s tests -v
-
-    - name: Generate Coverage Report
-      run: |
-        coverage report
-        coverage xml  # Genera el reporte de cobertura en formato XML
-
+        python3 -m unittest -v
     - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v4
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}  # Asegúrate de tener tu token de Codecov en los secretos
+      run: |
+        # Replace `linux` below with the appropriate OS
+        # Options are `alpine`, `linux`, `macos`, `windows`
+        curl -Os https://cli.codecov.io/latest/linux/codecov
+        chmod +x codecov
+        ./codecov --verbose upload-process --fail-on-error -t ${{ secrets.CODECOV_TOKEN }} -n 'service'-${{ github.run_id }} -F service -f coverage-service.xml
