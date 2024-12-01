@@ -9,9 +9,9 @@ import {
   Container,
   Row,
   Col,
+  Alert,
 } from "reactstrap";
-import { useRouter } from "next/navigation"
-import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -19,6 +19,8 @@ export default function Register() {
     email: "",
     password: "",
   });
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const router = useRouter();
 
@@ -33,17 +35,32 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://127.0.0.1:5000/create/user", formData);
-      alert("Registration successful!");
-      setFormData({
-        name: "",
-        email: "",
-        password: "",
+      const response = await fetch("http://127.0.0.1:5000/create/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-      router.push("/login");
+
+      if (response.ok) {
+        setSuccessMessage("Registration successful! Redirecting to login...");
+        setFormData({
+          name: "",
+          email: "",
+          password: "",
+        });
+
+        setTimeout(() => {
+          router.push("/login");
+        }, 2000);
+      } else {
+        const errorData = await response.json();
+        setErrorMessage(errorData.message || "Error during registration. Please try again.");
+      }
     } catch (error) {
-      console.error(error);
-      alert("Error during registration. Please try again.");
+      console.error("Network error:", error);
+      setErrorMessage("An unexpected error occurred. Please try again.");
     }
   };
 
@@ -53,6 +70,8 @@ export default function Register() {
         <Col md={6}>
           <div className="border p-4 bg-light">
             <h2 className="text-center mb-4">Create Your Account</h2>
+            {successMessage && <Alert color="success">{successMessage}</Alert>}
+            {errorMessage && <Alert color="danger">{errorMessage}</Alert>}
             <Form onSubmit={handleSubmit}>
               <FormGroup>
                 <Label for="name">Name</Label>
