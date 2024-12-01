@@ -29,3 +29,4 @@ urllib3==1.26.12
 wcwidth==0.2.5
 Werkzeug==2.2.2
 zipp==3.8.1
+Flask-SocektIO==5.1.1
