@@ -3,7 +3,6 @@ import json
 
 from tests.test_utils import *
 
-
 class TestUser(unittest.TestCase):
 
     def setUp(self):
