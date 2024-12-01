@@ -78,4 +78,7 @@ def on_join(data):
 
 if __name__ == '__main__':
     rebuild_tables()
-    socketio.run(app, debug=True, allow_unsafe_werkzeug=True)  # Use socketio.run instead of app.run
+    if os.getenv('CI') is None:  # Check if running in CI environment
+        socketio.run(app, debug=True, allow_unsafe_werkzeug=True)
+    else:
+        print("Running in CI, skipping socketio.run()")
