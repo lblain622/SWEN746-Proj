@@ -78,4 +78,4 @@ def on_join(data):
 
 if __name__ == '__main__':
     rebuild_tables()
-    socketio.run(app, debug=True)  # Use socketio.run instead of app.run
+    socketio.run(app, debug=True, allow_unsafe_werkzeug=True)  # Use socketio.run instead of app.run
