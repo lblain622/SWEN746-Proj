@@ -57,28 +57,29 @@ api.add_resource(NotificationController, '/notify/<int:user_id>/<string:notifica
 # API's for messages
 api.add_resource(MessageController, '/messages', '/messages/<int:user_id>', '/messages/conversation')
 
-@socketio.on('send_message')
-def handle_send_message(data):
-    from_id = data['from_id']
-    to_id = data['to_id']
-    content = data['content']
-    sender_name = data.get('sender_name', 'Unknown')
-    message_service = MessageService()
-    message_service.send_message(to_id, from_id, sender_name, content)
-    print(f"Sending message from {from_id} to {to_id}: {content}")
-    emit('received_message', data, room=int(to_id))  # Emit to the receiver
-    emit('message_sent', data, room=int(from_id))  # Emit to the receiver
-  # Emit to the sender
+# @socketio.on('send_message')
+# def handle_send_message(data):
+#     from_id = data['from_id']
+#     to_id = data['to_id']
+#     content = data['content']
+#     sender_name = data.get('sender_name', 'Unknown')
+#     message_service = MessageService()
+#     message_service.send_message(to_id, from_id, sender_name, content)
+#     print(f"Sending message from {from_id} to {to_id}: {content}")
+#     emit('received_message', data, room=int(to_id))  # Emit to the receiver
+#     emit('message_sent', data, room=int(from_id))  # Emit to the receiver
+#   # Emit to the sender
 
-@socketio.on('join')
-def on_join(data):
-    user_id = data['user_id']
-    join_room(user_id)
-    print(f"User {user_id} joined room {user_id}")
+# @socketio.on('join')
+# def on_join(data):
+#     user_id = data['user_id']
+#     join_room(user_id)
+#     print(f"User {user_id} joined room {user_id}")
 
 if __name__ == '__main__':
     rebuild_tables()
     if os.getenv('CI') is None:  # Check if running in CI environment
         socketio.run(app, debug=True, allow_unsafe_werkzeug=True)
     else:
+        app.run(debug=True)
         print("Running in CI, skipping socketio.run()")
