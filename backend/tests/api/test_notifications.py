@@ -4,7 +4,7 @@ from tests.test_utils import post_rest_call
 class TestNotificationAPI(unittest.TestCase):
     def setUp(self):
         self.base_url = 'http://localhost:5000/notify'
-
+        
     def test_notify_message_received(self):
         url = f'{self.base_url}/1/message_received'
         response = post_rest_call(self, url)
