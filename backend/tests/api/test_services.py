@@ -62,7 +62,8 @@ class TestService(unittest.TestCase):
         api_result = get_rest_call(
             self,
             'http://localhost:5000/services/user/1',
-            get_header={'Content-Type': 'application/json'})
+            get_header={'Content-Type': 'application/json'}
+        )
 
         api_result_filtered = [api_result[0], api_result[1], api_result[2], api_result[3], api_result[5]]
         self.assertEqual(api_result_filtered, expected_result, 'The service for a user is found')
