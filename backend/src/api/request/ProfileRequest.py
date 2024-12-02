@@ -11,5 +11,6 @@ class ProfileParser():
         self.parser.add_argument('student_id', type=str, )
         self.parser.add_argument('user_id', type=int, required=True, help="User ID is required and must be an integer.")
 
+
     def parse_args(self):
         return self.parser.parse_args()
