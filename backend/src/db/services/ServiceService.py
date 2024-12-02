@@ -9,9 +9,16 @@ def get_service(service_id):
     '''
     return exec_get_one(query, (service_id,))
 
+def get_services_user(user_id):
+    query = '''
+            SELECT *
+            FROM services
+            WHERE user_id = %s;
+        '''
+    return exec_get_all(query, (user_id,))
 def list_of_services():
     query = '''
-        SELECT * 
+        SELECT *
         FROM services;
     '''
     return exec_get_all(query,)
@@ -38,7 +45,7 @@ def update_service(service_id, data):
 
 def delete_service(service_id):
     query = '''
-        DELETE 
+        DELETE
         FROM services
         WHERE id = %s;
     '''

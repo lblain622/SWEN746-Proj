@@ -28,9 +28,10 @@ api.add_resource(UserDelete, '/delete/user/<int:user_id>')
 # APIs Services
 # api.add_resource(ServiceList, '/services')
 api.add_resource(ServiceCreate, '/services/create')
-# api.add_resource(ServiceUpdate, '/services/update/<int:service_id>')
+api.add_resource(ServiceUpdate, '/services/update/<int:service_id>')
 api.add_resource(ServiceGet, '/services/<int:service_id>')
 api.add_resource(ServiceDelete, '/services/delete/<int:service_id>')
+api.add_resource(ServiceUser,'/services/user/<int:user_id>')
 
 # APIs Filter
 api.add_resource(Filter, '/filter')
