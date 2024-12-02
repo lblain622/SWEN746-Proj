@@ -32,7 +32,7 @@ export async function updateProfile(profile_id,form_data){
             headers: {'Content-Type': 'application/json',},
             body:JSON.stringify(form_data)});
         if(!response.ok){
-            throw new Error(`HTTP error! status: ${response.status}`);
+           new Error(`HTTP error! status: ${response.status}`);
         }
 
         return await response.json();

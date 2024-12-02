@@ -9,13 +9,13 @@ def get_service(service_id):
     '''
     return exec_get_one(query, (service_id,))
 
-def get_services_user(user_id)
+def get_services_user(user_id):
     query = '''
             SELECT *
             FROM services
             WHERE user_id = %s;
         '''
-        return exec_get_one(query, (user_id,))
+    return exec_get_one(query, (user_id,))
 def list_of_services():
     query = '''
         SELECT *

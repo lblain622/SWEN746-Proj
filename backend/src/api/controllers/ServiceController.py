@@ -9,7 +9,7 @@ class ServiceList(Resource):
         return jsonify(services)
 
 class ServiceUser(Resource):
-    def get (self,user_id):
+    def get(self,user_id):
         services= ServiceService.get_services_user(user_id)
         return jsonify(services)
 

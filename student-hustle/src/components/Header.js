@@ -62,6 +62,9 @@ export default function Header() {
               <NavLink href="/profile">Profile</NavLink>
             </NavItem>
             <NavItem>
+              <NavLink href="/my_services">My Services</NavLink>
+            </NavItem>
+            <NavItem>
               <NavLink href="#" onClick={handleLogout}>Logout</NavLink>
             </NavItem>
           </Nav>
