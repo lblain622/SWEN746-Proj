@@ -46,7 +46,7 @@ class TestService(unittest.TestCase):
             get_header={'Content-Type': 'application/json'}
         )
 
-        api_result_filtered = [api_result[0], api_result[1], api_result[2], api_result[3], api_result[4]]
+        api_result_filtered = [api_result[0], api_result[1], api_result[2], api_result[3], api_result[5]]
 
         self.assertEqual(api_result_filtered, expected_result, 'The service is found')
 
@@ -64,7 +64,7 @@ class TestService(unittest.TestCase):
             'http://localhost:5000/services/user/1',
             get_header={'Content-Type': 'application/json'})
 
-        api_result_filtered = [api_result[0], api_result[1], api_result[2], api_result[3], api_result[4]]
+        api_result_filtered = [api_result[0], api_result[1], api_result[2], api_result[3], api_result[5]]
         self.assertEqual(api_result_filtered, expected_result, 'The service for a user is found')
     def test_delete_service(self):
         expected_result = {
