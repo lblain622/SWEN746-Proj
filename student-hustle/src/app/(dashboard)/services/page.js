@@ -3,8 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Card, CardBody, CardTitle, CardText, Button } from 'reactstrap';
 import { Form, FormGroup } from 'reactstrap';
+import { useRouter } from "next/navigation";
 
 export default function Services() {
+  const navigate = useRouter();
 
   const cardsPerPage = 3;
   const [currentPage, setCurrentPage] = useState(1);
@@ -45,17 +47,6 @@ export default function Services() {
     fetchServices();
   }, []);
 
-  const handleView = (e) => {
-    console.log('hi');
-    console.log(e.target.value);
-    try {
-    //  const response = await fetch(`http://localhost:5000/service/1`);
-    //      router.push("/$id");
-    } catch(error) {
-      console.log(error);
-    }
-  }
-
   const handleChange = (e) => {
     e.preventDefault();
     setInput(e.target.value);
@@ -67,10 +58,13 @@ export default function Services() {
     setInput(""); 
   }
 
+  const handleView = (id) => {
+    navigate.push(`/detail/${id}`); 
+  };
+
     return (
       <>
         <div>List of services</div>
-
       {/*Search Bar at Top*/}
       <Form onSubmit={handleSubmit}>
         <FormGroup>
@@ -78,7 +72,7 @@ export default function Services() {
           style={ {width: '80%', alignItems:'center', padding: '10px', fontSize: '16px'} }
           type="text"
           placeholder="Search here"
-          onChange={handleView}
+          onChange={handleChange}
           value={searchInput} 
         /> 
       </FormGroup>
@@ -99,7 +93,7 @@ export default function Services() {
                 </CardText>
                 <Button style= {{backgroundColor:'grey'}}
                 color="primary"
-                onClick={handleNextPage}>
+                onClick={() => handleView(service.id)}>
                 View More
                 </Button>
               </CardBody>
