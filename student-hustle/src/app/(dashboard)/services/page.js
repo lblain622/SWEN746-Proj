@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Card, CardBody, CardTitle, CardText, Button } from 'reactstrap';
+import { Form, FormGroup } from 'reactstrap';
 
 export default function Services() {
 
@@ -44,33 +45,44 @@ export default function Services() {
     fetchServices();
   }, []);
 
-  const handleFilter = (e) => {
-    e.preventDefault();
-    setServices(services.filter(card => card.title === searchInput)); 
-    setInput(""); 
-  };
+  const handleView = (e) => {
+    console.log('hi');
+    console.log(e.target.value);
+    try {
+    //  const response = await fetch(`http://localhost:5000/service/1`);
+    //      router.push("/$id");
+    } catch(error) {
+      console.log(error);
+    }
+  }
 
   const handleChange = (e) => {
     e.preventDefault();
-    setSearchInput(e.target.value);
+    setInput(e.target.value);
   };
-  
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); 
+    setServices(services.filter(card => card.title === searchInput)); 
+    setInput(""); 
+  }
 
     return (
       <>
         <div>List of services</div>
 
       {/*Search Bar at Top*/}
-      <input
-       style={ {width: '100%',  
-        padding: '10px',   
-        fontSize: '16px'} }
-      type="text"
-      placeholder="Search here"
-      onChange={handleChange}
-      value={searchInput} 
-      />
-      
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+        <input
+          style={ {width: '80%', alignItems:'center', padding: '10px', fontSize: '16px'} }
+          type="text"
+          placeholder="Search here"
+          onChange={handleView}
+          value={searchInput} 
+        /> 
+      </FormGroup>
+    </Form>
 
       <div>
       {/* Grid Layout of Cards */} 
@@ -100,7 +112,7 @@ export default function Services() {
       <div className="d-flex justify-content-around">
         <Button
           color="primary"
-          disabled={currentPage === 0} // Disable "Previous" on first page
+          disabled={currentPage === 1} // Disable "Previous" on first page
           onClick={handlePreviousPage}
         >
           Previous
@@ -111,11 +123,10 @@ export default function Services() {
           onClick={handleNextPage}
         >
           Next
-        </Button>
+          </Button>
+        </div>
       </div>
-    </div>
-
-      </>
+    </>
 
     );
   }
