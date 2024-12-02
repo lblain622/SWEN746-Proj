@@ -15,7 +15,7 @@ import { useRouter } from "next/navigation";
 
 export default function Register() {
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
   });
@@ -46,7 +46,7 @@ export default function Register() {
       if (response.ok) {
         setSuccessMessage("Registration successful! Redirecting to login...");
         setFormData({
-          name: "",
+          username: "",
           email: "",
           password: "",
         });
@@ -64,6 +64,10 @@ export default function Register() {
     }
   };
 
+  const navigateToLogin = () => {
+    router.push("/login");
+  };
+
   return (
     <Container className="mt-5">
       <Row className="justify-content-center">
@@ -74,12 +78,12 @@ export default function Register() {
             {errorMessage && <Alert color="danger">{errorMessage}</Alert>}
             <Form onSubmit={handleSubmit}>
               <FormGroup>
-                <Label for="name">Name</Label>
+                <Label for="username">Username</Label>
                 <Input
                   type="text"
-                  name="name"
-                  id="name"
-                  value={formData.name}
+                  name="username"
+                  id="username"
+                  value={formData.username}
                   onChange={handleChange}
                   required
                 />
@@ -110,10 +114,17 @@ export default function Register() {
                 Register
               </Button>
             </Form>
+            <Button
+              color="secondary"
+              block
+              className="mt-3"
+              onClick={navigateToLogin}
+            >
+              Back to Login
+            </Button>
           </div>
         </Col>
       </Row>
     </Container>
   );
 }
-
