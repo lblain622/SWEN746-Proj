@@ -34,14 +34,16 @@ const ServiceEditModal = ({ isOpen, toggle, userId, serviceId,refresh }) => {
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            await updateService(serviceId, CurrentService).then(
-                refresh()
-            ); // Update the service with the new data
-            toggle(); // Close the modal after successful update
-        } catch (error) {
-            console.error("Error updating service:", error);
-        }
+        await updateService(serviceId, CurrentService)
+    .then(() => {
+        refresh(); // Refresh the service list after update
+    })
+    .then(() => {
+        toggle(); // Toggle the modal or reset state after updating
+    })
+    .catch((error) => {
+        console.error("Error updating service:", error);
+    });
     };
 
     // Handle input changes

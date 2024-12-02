@@ -72,7 +72,7 @@ export async function getService(service_id) {
 
 export async function updateService(service_id,data) {
     try{
-        const apiURL = 'http://localhost:5000/services/update'+service_id;
+        const apiURL = 'http://localhost:5000/services/update/'+service_id;
         const response = await fetch(apiURL,{
             method: 'PUT',
             headers: {'Content-Type': 'application/json',},

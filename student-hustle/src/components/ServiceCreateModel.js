@@ -5,13 +5,15 @@ import { createService } from "@/app/services/ServiceServices"; // Assuming path
 const ServiceCreateModal = ({ isOpen, toggle, userId,refresh }) => {
     const [newService, setNewService] = useState({ title: "", content: "", price: 0, user_id: userId });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        createService( newService).then(
-            refresh()
-        )
-        setNewService({ title: "", content: "", price: 0, user_id: userId }); // Reset form
-        toggle(); // Close modal
+        await createService(newService).then(()=> {
+            refresh();
+        }).then(()=> {
+            setNewService({title: "", content: "", price: 0, user_id: userId}); // Reset form
+            toggle(); // Close modal
+        })
+
 
     };
 
