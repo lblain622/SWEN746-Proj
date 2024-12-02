@@ -2,6 +2,7 @@ from flask_restful import Resource
 from flask import jsonify
 from db.services import ProfileService
 from api.request.ProfileRequest import  ProfileParser
+from werkzeug.exceptions import BadRequest
 
 class ProfileController(Resource):
     def __init__(self):
@@ -18,14 +19,16 @@ class ProfileController(Resource):
         else:
             return {"message": "Profile not found"}, 404
     def post(self):
-        # Parse request data
         try:
+            # Parse request data
             data = self.parser.parse_args()
-            # Create the profile using the service
             ProfileService.create_profile(data)
             return {"message": "Profile Created"}, 200
+        except BadRequest as e:
+            return {"message": str(e)}, 400
         except Exception as e:
-            return {"message":  e}, 500
+            print(f"Error in ProfileController.post: {e}")
+            return {"message": "An unexpected error occurred"}, 500
 
     def put(self, id):
         # Parse request data profile_id

@@ -36,9 +36,7 @@ class TestUser(unittest.TestCase):
             "email":"kittycat@gmail.com",
         }
 
-        expected_result = {
-            'message':'User created successfully'
-        }
+        expected_message = 'User created successfully'
 
         body_json = json.dumps(json_body)
         api_result = post_rest_call(
@@ -50,7 +48,11 @@ class TestUser(unittest.TestCase):
             post_header={'Content-Type': 'application/json'}
         )
 
-        self.assertEqual(api_result, expected_result, 'Creation success')
+        self.assertIn('message', api_result, 'Response contains message')
+        self.assertEqual(api_result['message'], expected_message, 'Creation success')
+
+        self.assertIn('id', api_result, 'Response contains id')
+        self.assertIsInstance(api_result['id'], int, 'id is an integer')
 
     def test_get_one_user(self):
         expected_result = [

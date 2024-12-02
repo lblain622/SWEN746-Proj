@@ -27,11 +27,24 @@ def create_user(data):
 
     query = '''
         INSERT INTO Users (name, password, email)
-        VALUES (%s, %s, %s);
+        VALUES (%s, %s, %s)
+        RETURNING id;  
     '''
 
-    exec_commit(query, (data['name'], data['password'], data['email']))
-    return {"message": "User created successfully"}, 200
+    conn = connect()
+    cur = conn.cursor()
+    try:
+        cur.execute(query, (data['name'], data['password'], data['email']))
+        user_id = cur.fetchone()[0]  
+        conn.commit()
+        return {"id": user_id, "message": "User created successfully"}, 200
+    except Exception as e:
+        conn.rollback()
+        print(f"Error creating user: {e}")
+        return {"message": "Error creating user"}, 500
+    finally:
+        cur.close()
+        conn.close()
 
 def update_user(user_id, data):
     query = '''
