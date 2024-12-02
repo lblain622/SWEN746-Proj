@@ -3,7 +3,6 @@ import json
 
 from tests.test_utils import *
 
-
 class TestUser(unittest.TestCase):
 
     def setUp(self):
@@ -12,7 +11,7 @@ class TestUser(unittest.TestCase):
 
     def test_login(self):
         json_body = {
-            "name":"John Doe",
+            "username":"john_doe",
             "password":"password123"
         }
 
@@ -32,7 +31,7 @@ class TestUser(unittest.TestCase):
 
     def test_create_user(self):
         json_body = {
-            "name":"vanecat",
+            "username":"vanecat",
             "password":"kittycat",
             "email":"kittycat@gmail.com",
         }
@@ -56,7 +55,7 @@ class TestUser(unittest.TestCase):
     def test_get_one_user(self):
         expected_result = [
             1,
-            "John Doe",
+            "john_doe",
             "password123",
             "john.doe@example.com"
         ]
@@ -64,7 +63,7 @@ class TestUser(unittest.TestCase):
         api_result = get_rest_call(
 
             self,
-            'http://localhost:5000/obtain/user/1',
+            'http://localhost:5000/obtain/user/john_doe',
 
             get_header={'Content-Type': 'application/json'}
         )
@@ -75,7 +74,7 @@ class TestUser(unittest.TestCase):
 
     def test_update_user(self):
         json_body = {
-            'name':'John Doe123',
+            'username':'john_doe123',
             'password':'password1234',
             "email":"joh.doe@example.com",
         }

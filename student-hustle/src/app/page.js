@@ -1,10 +1,14 @@
-import UserComponent from "@/components/UserComponent";
+'use client';
+
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
-    return (
-        <div>
-            <h1>Hello, World!</h1>
-            <UserComponent />
-        </div>
-    );
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push('/login');
+  }, [router]);
+
+  return null;
 }
