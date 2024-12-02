@@ -7,7 +7,7 @@ import { Form, FormGroup, Label, Input, Button, Alert } from 'reactstrap';
 
 export default function Login() {
   const router = useRouter();
-  const [username, setUsername] = useState(""); // Cambio de name a username
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -18,30 +18,34 @@ export default function Login() {
     }
 
     try {
-      // Primero hacemos el login con el username y password
       const response = await fetch("http://localhost:5000/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password }), // Enviamos username
+        body: JSON.stringify({ username, password }),
       });
 
       if (response.ok) {
         const data = await response.json();
         console.log("Login successful:", data);
 
-        // Aquí ya sabemos que el login fue exitoso, así que hacemos una segunda solicitud para obtener más datos del usuario
-        const userResponse = await fetch(`http://localhost:5000/obtain/user/${username}`); // Usamos el username en la URL
+        const userResponse = await fetch(`http://localhost:5000/obtain/user/${username}`);
 
         if (userResponse.ok) {
-          const userData = await userResponse.json();
-          console.log("User data fetched:", userData);
+          const userDataArray = await userResponse.json();
+          console.log("User data fetched:", userDataArray);
 
-          // Guardamos los datos del usuario en localStorage
+          const userData = {
+            id: userDataArray[0],
+            username: userDataArray[1],
+            password: userDataArray[2],
+            email: userDataArray[3],
+            lastLogin: userDataArray[4],
+          };
+
           localStorage.setItem("currentUser", JSON.stringify(userData));
-
-          // Redirigimos a la página de servicios
+          
           router.push("/services");
         } else {
           displayError("Error fetching user details.");
@@ -72,10 +76,10 @@ export default function Login() {
               <Label for="username">Username</Label>
               <Input 
                 type="text" 
-                id="username" // Cambiado de "name" a "username"
+                id="username"
                 placeholder="Enter your username"
-                value={username} // Cambiado de "name" a "username"
-                onChange={(e) => setUsername(e.target.value)} // Cambiado de "name" a "username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </FormGroup>
             <FormGroup>
