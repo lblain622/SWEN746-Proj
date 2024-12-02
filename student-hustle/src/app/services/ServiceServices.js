@@ -58,15 +58,13 @@ export async function getService(service_id) {
             new Error(`HTTP error! status: ${response.status}`);
         }
         const servicedata = await response.json();
-        const service ={
+        return {
             id: servicedata[0],
-            title:servicedata[1],
-            content:servicedata[2],
-            price:servicedata[3],
-            created_at:servicedata[4],
-            user_id:servicedata[5],
+            title: servicedata[1],
+            content: servicedata[2],
+            price: servicedata[3],
+            user_id: servicedata[5],
         }
-        return await response.json();
     }catch(error){
         console.error(error);
     }
@@ -88,13 +86,14 @@ export async function updateService(service_id,data) {
     console.error(error);
 }
 }
-export async function createService(user_id,data){
+export async function createService(data){
     try{
         const response = await fetch(POSTURL,{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body:JSON.stringify(data)
         });
+
         console.log(JSON.stringify(data))
         if(!response.ok){
             new Error(`HTTP error! status: ${response.status}`);

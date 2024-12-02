@@ -2,22 +2,25 @@ import React, { useState } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Form, Input } from 'reactstrap';
 import { createService } from "@/app/services/ServiceServices"; // Assuming path is correct
 
-const ServiceCreateModal = ({ isOpen, toggle, userId }) => {
+const ServiceCreateModal = ({ isOpen, toggle, userId,refresh }) => {
     const [newService, setNewService] = useState({ title: "", content: "", price: 0, user_id: userId });
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(newService)
-        createService(userId, newService); // Assuming createService is working as intended
+        createService( newService).then(
+            refresh()
+        )
         setNewService({ title: "", content: "", price: 0, user_id: userId }); // Reset form
         toggle(); // Close modal
+
     };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setNewService((prevState) => ({
             ...prevState,
-            [name]: value, // Update the correct field
+            [name]: value,
+            user_id: userId
         }));
     };
 

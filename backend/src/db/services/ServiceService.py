@@ -15,7 +15,7 @@ def get_services_user(user_id):
             FROM services
             WHERE user_id = %s;
         '''
-    return exec_get_one(query, (user_id,))
+    return exec_get_all(query, (user_id,))
 def list_of_services():
     query = '''
         SELECT *
@@ -28,6 +28,7 @@ def create_service(data):
         INSERT INTO services (title, content, price, user_id)
         VALUES (%s, %s, %s, %s);
     '''
+    print(data)
     exec_commit(query, (data['title'], data['content'], data['price'], data['user_id']))
     return {"message": "Service created successfully"}, 200
 
