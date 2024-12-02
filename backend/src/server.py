@@ -39,16 +39,17 @@ api.add_resource(Users, '/') # test to count all users until remove / test...
 api.add_resource(UserLogin, '/login')
 api.add_resource(UserCreate, '/create/user')
 api.add_resource(UserUpdate, '/edit/user/<int:user_id>')
-api.add_resource(UserGet, '/obtain/user/<int:user_id>')
+api.add_resource(UserGet, '/obtain/user/<string:username>')
 api.add_resource(UserDelete, '/delete/user/<int:user_id>')
 
 
 # APIs Services
 # api.add_resource(ServiceList, '/services')
 api.add_resource(ServiceCreate, '/services/create')
-# api.add_resource(ServiceUpdate, '/services/update/<int:service_id>')
+api.add_resource(ServiceUpdate, '/services/update/<int:service_id>')
 api.add_resource(ServiceGet, '/services/<int:service_id>')
 api.add_resource(ServiceDelete, '/services/delete/<int:service_id>')
+api.add_resource(ServiceUser,'/services/user/<int:user_id>')
 
 # FILTER
 api.add_resource(Filter, '/filter')
@@ -89,7 +90,6 @@ def on_join(data):
 
 if __name__ == '__main__':
     rebuild_tables()
-
     if os.getenv('CI') is None:  # Check if running in CI environment
         socketio.run(app, debug=True, allow_unsafe_werkzeug=True)
     else:
