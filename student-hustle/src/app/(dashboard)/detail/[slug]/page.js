@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useEffect, useState } from 'react';
 import { use } from 'react';
@@ -7,27 +7,34 @@ import { Card, CardBody, CardTitle, CardText, CardFooter, Button, Row, Col, Cont
 export default function Detail({ params }) {
   const { slug } = use(params);
   const [serviceData, setServiceData] = useState(null);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
-    if (slug) {
-      const fetchService = async () => {
-        const res = await fetch(`http://localhost:5000/services/${slug}`);
-        const data = await res.json();
+    const fetchService = async () => {
+      const res = await fetch(`http://localhost:5000/services/${slug}`);
+      const data = await res.json();
 
-        const [id, title, content, price, date, userId] = data;
+      const [id, title, content, price, date, userId] = data;
 
-        const serviceObject = {
-          id,
-          title,
-          content,
-          price,
-          date,
-          userId
-        };
-
-        setServiceData(serviceObject);
+      const serviceObject = {
+        id,
+        title,
+        content,
+        price,
+        date,
+        userId
       };
 
+      setServiceData(serviceObject);
+
+      const userRes = await fetch(`http://localhost:5000/profile/${userId}`);
+      const userData = await userRes.json();
+
+      const fullName = `${userData[1]} ${userData[2]}`;
+      setUserName(fullName || "Unknown");
+    };
+
+    if (slug) {
       fetchService();
     }
   }, [slug]);
@@ -42,9 +49,9 @@ export default function Detail({ params }) {
               <CardBody>
                 <div className="d-flex justify-content-between">
                   <CardTitle tag="h3" className="text-dark">{serviceData.title}</CardTitle>
-                  <span className="text-muted">{new Date(serviceData.date).toLocaleDateString()}</span>
+                  <span className="text-muted">Service created at: {new Date(serviceData.date).toLocaleDateString()}</span>
                 </div>
-                <CardText className="text-muted mt-3">Person name</CardText>
+                <CardText className="text-muted mt-3">Person name: {userName}</CardText>
                 <CardText className="text-muted">{serviceData.content}</CardText>
                 <div className="d-flex justify-content-between">
                   <CardText className="font-weight-bold">Price: <span className="text-success">${serviceData.price}</span></CardText>
