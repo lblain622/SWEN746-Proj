@@ -22,7 +22,7 @@ api.add_resource(Users, '/') # test to count all users until remove / test...
 api.add_resource(UserLogin, '/login')
 api.add_resource(UserCreate, '/create/user')
 api.add_resource(UserUpdate, '/edit/user/<int:user_id>')
-api.add_resource(UserGet, '/obtain/user/<int:user_id>')
+api.add_resource(UserGet, '/obtain/user/<string:username>')
 api.add_resource(UserDelete, '/delete/user/<int:user_id>')
 
 # APIs Services

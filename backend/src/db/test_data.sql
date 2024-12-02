@@ -1,8 +1,8 @@
 -- INSERT DATA TO USERS
-INSERT INTO users (name, password, email) VALUES
-('John Doe', 'password123', 'john.doe@example.com'),
-('Jane Smith', 'password456', 'jane.smith@example.com'),
-('Michael Johnson', 'password789', 'michael.johnson@example.com');
+INSERT INTO users (username, password, email) VALUES
+('john_doe', 'password123', 'john.doe@example.com'),
+('jane_smith', 'password456', 'jane.smith@example.com'),
+('michael_johnson', 'password789', 'michael.johnson@example.com');
 
 -- INSERT DATA TO PROFILES
 INSERT INTO profiles (first_name, last_name, age, sex, student_id, user_id) VALUES
