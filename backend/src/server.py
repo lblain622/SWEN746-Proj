@@ -9,12 +9,15 @@ from api.controllers.ReviewController import *
 
 from api.controllers.UserController import *
 from api.controllers.FilterController import *
+from api.controllers.ServiceController import *
 from api.controllers.NotificationController import NotificationController
 from api.controllers.MessageController import MessageController
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit, join_room
 
 from db.services.MessageService import MessageService
+
+
 
 import logging
 
@@ -38,6 +41,14 @@ api.add_resource(UserCreate, '/create/user')
 api.add_resource(UserUpdate, '/edit/user/<int:user_id>')
 api.add_resource(UserGet, '/obtain/user/<int:user_id>')
 api.add_resource(UserDelete, '/delete/user/<int:user_id>')
+
+
+# APIs Services
+# api.add_resource(ServiceList, '/services')
+api.add_resource(ServiceCreate, '/services/create')
+# api.add_resource(ServiceUpdate, '/services/update/<int:service_id>')
+api.add_resource(ServiceGet, '/services/<int:service_id>')
+api.add_resource(ServiceDelete, '/services/delete/<int:service_id>')
 
 # FILTER
 api.add_resource(Filter, '/filter')
