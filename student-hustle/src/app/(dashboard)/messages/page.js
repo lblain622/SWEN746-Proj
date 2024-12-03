@@ -23,12 +23,10 @@ function ViewMessages({ messages, currentUsername, handleConversationClick }) {
               <ListGroupItem key={index} onClick={() => handleConversationClick(message.from_id)} action>
                 <div className="d-flex justify-content-between">
                   <div>
-                    <p>{message.sender_name} {message.total_messages}</p>
+                    <p>{message.sender_name} </p>
                     <p>{message.from_id === currentUsername ? `You: ${message.content}` : `${message.sender_name}: ${message.content}`}</p>
                   </div>
-                  <div>
-                    <small>{message.from_id}</small>
-                  </div>
+
                 </div>
               </ListGroupItem>
             ))
@@ -63,14 +61,14 @@ export default function Messages() {
     const data = await response.json();
     console.log(data)
     const uniqueMessages = data.messages.reduce((acc, message) => {
-      const existing = acc.find(m => m.from_id === message.from_id);
-      console.log(message);
-      if(message.from_id !== message.to_id){if (!existing || new Date(existing.sent_at) < new Date(message.sent_at)) {
-        return acc.filter(m => m.from_id !== message.from_id).concat(message);
+      if (message.from_id !== message.to_id && message.from_id !== currentUsername) {
+        const existing = acc.find(m => m.from_id === message.from_id);
+        if (!existing || new Date(existing.sent_at) < new Date(message.sent_at)) {
+          return acc.filter(m => m.from_id !== message.from_id).concat(message);
+        }
       }
-      return acc;}
+      return acc;
     }, []);
-    console.log(uniqueMessages);
     setMessages(uniqueMessages);
   };
 
@@ -78,8 +76,9 @@ export default function Messages() {
     if (currentUsername) {
       fetchMessages();
       socket.on('receive_message', (message) => {
+        
         if (message.to_id === currentUsername) {
-          setMessages((prevMessages) => [...prevMessages, message]);
+          fetchMessages();  
           toast.info('You have received a new message', {
             position: "top-right",
             autoClose: 3000,
