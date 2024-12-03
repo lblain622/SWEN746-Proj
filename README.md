@@ -162,34 +162,22 @@ This section describes the features of the application.
 
 ## DEMO Clips
 
+## DEMO Clips
+
 ### Login and Registration
-<video autoplay loop muted controls width="600">
-  <source src="Documents/videos/regest-login.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[Registration/Login](Documents/videos/regest-login.mp4)
 
 ### Search/Filtering Services
-<video autoplay loop muted controls width="600">
-  <source src="Documents/videos/home.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[Search/Filtering Services](Documents/videos/home.mp4)
 
 ### Messaging
-<video autoplay loop muted controls width="600">
-  <source src="Documents/videos/messaging.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[Messaging](Documents/videos/messaging.mp4)
 
 ### Profile Management (view and updating a profile)
-<video autoplay loop muted controls width="600">
-  <source src="Documents/videos/profile.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[Profile Management](Documents/videos/profile.mp4)
 
 ### Service Management (Create, Edit, and Delete a service)
-<video autoplay loop muted controls width="600">
-  <source src="Documents/videos/my_services.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[Service Management](Documents/videos/my_services.mp4)
+
 
 
