@@ -2,6 +2,7 @@ from flask_restful import Resource
 from flask import jsonify
 from db.services import ProfileService
 from api.request.ProfileRequest import  ProfileParser
+from werkzeug.exceptions import BadRequest
 
 class ProfileController(Resource):
     def __init__(self):

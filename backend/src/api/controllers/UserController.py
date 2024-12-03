@@ -34,8 +34,8 @@ class UserUpdate(Resource):
         return updated_user
 
 class UserGet(Resource):
-    def get(self, user_id):
-        return jsonify(UserService.get_user(user_id))
+    def get(self, username):
+        return jsonify(UserService.get_user_by_username(username))
         
 class UserDelete(Resource):
     def delete(self, user_id):

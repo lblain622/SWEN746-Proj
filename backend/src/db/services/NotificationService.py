@@ -1,4 +1,4 @@
-from src.db.swen610_db_utils import exec_commit
+from ..swen610_db_utils import exec_commit, exec_get_all
 
 class NotificationService:
     def send_notification(self, user_id, message):
@@ -20,3 +20,21 @@ class NotificationService:
 
     def notify_task_completed(self, user_id):
         self.send_notification(user_id, 'The task you assigned has been completed.')
+
+    def get_notifications(self, user_id):
+        query = '''
+            SELECT title, content, created_at
+            FROM notifications
+            WHERE user_id = %s
+        '''
+        notifications = exec_get_all(query, (user_id,))
+        notifications_list = [{'title': n[0], 'content': n[1], 'created_at': n[2]} for n in notifications]
+        print(f"Getting notifications for user {user_id}")
+        return notifications_list
+
+    def get_user_id(self, username):
+        query = '''
+            SELECT id FROM users WHERE email = %s
+        '''
+        result = exec_get_all(query, (username,))
+        return result[0][0] if result else None
