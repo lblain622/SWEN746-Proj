@@ -49,7 +49,6 @@ This section describes the features of the application.
 
 *Simple messaging*
   * Users will be able to use the messaging feature to communicate directly with clients, so they can discuss project details and updates.
-    
 
 *Review/ Rating System*
   * Students will be able to leave a rating (eg., 1-5) after receiving a service.
@@ -65,16 +64,11 @@ This section describes the features of the application.
   * Login
     * As a user I was to be able to verify my account credentials through the system, so it verifies that it is valid.
   * Manage profile
-  
     * As a freelance student, I want to be able to have privacy, so that only those interested in my service can see me
     * As a student, I want to see someone’s verification, so I can know they are a student
-
   * Manage services
-
     * As a student I want to be able to see all the services available, so I can see which kind of services are available
     * As a student, I want to compare multiple freelancers side by side, so I can make a more informed decision based on price, availability, and reviews.
-
-  
   * Filtering / Searching services
      * As a student I want to filter different services, so I can get what I want more specifically.
      * As a student, I want to receive recommendations based on my previous bookings or searches, so I can discover relevant services more easily.
@@ -128,24 +122,5 @@ This section describes the features of the application.
     * Students should be able to select a payment method (e.g., credit/debit card, PayPal) securely through the platform.
     * After payment completion, students should receive a confirmation receipt within the platform.
 
-
-
-## Architecture and Design
-![Architecture and design](arquitecture-diagram.drawio.png)
-
-### Software Architecture
-> _Place a architectural diagram here._
-> _Describe your software architecture._
-
-
-### Use Cases
-![Use Case Diagram](user_case_diagram_png.png)
-
-### Domain Model Diagram
-![Domain Model Diagram](domain_diagram.png)
-
-### Sequence Diagram
-![Sequence Model Diagram](sequence_diagram.drawio.png)
-
-### Class Diagram
-![Class Diagram](Class_Diagram.drawio.png)
+    ## Documentation
+    ![DesignDocument](Documents/DesignDoc.md)
