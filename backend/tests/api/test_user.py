@@ -31,7 +31,7 @@ class TestUser(unittest.TestCase):
 
     def test_create_user(self):
         json_body = {
-            "name":"vanecat",
+            "username":"vanecat",
             "password":"kittycat",
             "email":"kittycat@gmail.com",
         }
