@@ -30,6 +30,5 @@ wcwidth==0.2.5
 Werkzeug==2.2.2
 zipp==3.8.1
 Flask-SocketIO==5.4.1
-
 flask-cors==3.0.10
 
