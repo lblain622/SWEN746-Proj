@@ -58,17 +58,15 @@ def update_profile(profile_id, data):
     `data` is a dictionary containing the fields to update.
     """
     try:
-        fields = ", ".join([f"{key} = %s" for key in data.keys()])
         query = '''
-        Update profiles
+        UPDATE profiles
         SET first_name = %s,
             last_name = %s,
             age = %s,
             sex = %s,
-            student_id = %s,
+            student_id = %s
         WHERE id = %s;
         '''
-
         values = (
             data['first_name'],
             data['last_name'],
