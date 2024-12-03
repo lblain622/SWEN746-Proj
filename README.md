@@ -18,6 +18,44 @@
 When in college, many students are limited to part-time jobs while balancing their courses, to manage their finances. Even then students try not to spend too much since they might not have a regular income. On the other hand, some students might not have time or might need help but cannot go to the school’s tutoring hours due to other commitments. The goal of this application is to allow students with free time to offer their services,such as cooking meals, and tutoring, to other students who might need help in some sort of way. In other words a student freelancing app for RIT students. 
 There exist a plethora of unexplored opportunities for students to reach out to each other hence the desirability of a centralized location for all of those ideas to ensemble. This app would fulfill that dream.
 
+## Installation  
+
+### Installation Requirements  
+- Python 3.8+  
+- Local PostgreSQL server  
+- Node.js 18.0+  
+
+### Setup  
+
+1. **Install Necessary Packages**  
+   a. **Install Python Packages**  
+      ```bash
+      cd backend
+      pip install -r requirements.txt
+      ```
+   b. **Install npm Packages**  
+      ```bash
+      cd student-hustle
+      npm install
+      ```
+
+2. **Create DB Configuration File**  
+   - In `backend/config`, create a file called `db.yml`.  
+   - Use the following template in the file:  
+     ```yaml
+     host: localhost  
+     database: <database name>  
+     user: <postgres-username>  
+     password: <postgres-user-password>  
+     port: <port>
+     ```
+   - This file allows the backend to set up the schema and data on a local device.
+   - Replace <>  values with the actual values of your postgres database
+
+3. **Run Backend**  
+   ```bash
+   cd backend/src
+   python server.py
 
 
 ## Requirements
