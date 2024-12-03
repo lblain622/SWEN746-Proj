@@ -258,4 +258,3 @@ export async function deleteService(service_id){
         console.error(error);
     }
 }
-  
