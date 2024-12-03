@@ -25,7 +25,7 @@ class MessageService:
     def get_messages(self, user_id):
         query = '''
             SELECT DISTINCT ON (m.from_id) m.from_id, m.to_id, m.title, m.content, m.sent_at,
-                   u1.name as sender_name, u2.name as receiver_name
+                   u1.username as sender_name, u2.username as receiver_name
             FROM messages m
             JOIN users u1 ON m.from_id = u1.id
             JOIN users u2 ON m.to_id = u2.id
