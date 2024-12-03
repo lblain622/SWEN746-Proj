@@ -165,7 +165,7 @@ This section describes the features of the application.
 ## DEMO Clips
 
 ### Login and Registration
-[Registration/Login](Documents/videos/regest-login.mp4)
+[![Registration/Login](Documents/videos/regest-login.mp4)]
 
 ### Search/Filtering Services
 [Search/Filtering Services](Documents/videos/home.mp4)
