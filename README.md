@@ -158,20 +158,38 @@ This section describes the features of the application.
     * After payment completion, students should receive a confirmation receipt within the platform.
 
     ## Documentation
-    ![DesignDocument](Documents/DesignDoc.md)
+    [DesignDocument](Documents/DesignDoc.md)
 
-    ## DEMO Clips
-    
-    ### Login and Registration
-    ![Registration/Login](Documents/videos/regest-login.mp4)
-    
-    ### Search/Filtering Services
-    ![SearchFeature](Documents/videos/home.mp4)
-    ### Messaging
-    ![Messaging](Documents/videos/messaging.mp4)
-    ### Profile Management (view and updating a profile)
-    ![Profile Management](Documents/videos/profile.mp4)
+## DEMO Clips
 
-    ### Service Management (Create, Edit, and Delete a service)
-  * ![ServiceManagement](Documents/videos/my_services.mp4)
+### Login and Registration
+<video autoplay loop muted controls width="600">
+  <source src="Documents/videos/regest-login.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+### Search/Filtering Services
+<video autoplay loop muted controls width="600">
+  <source src="Documents/videos/home.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+### Messaging
+<video autoplay loop muted controls width="600">
+  <source src="Documents/videos/messaging.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+### Profile Management (view and updating a profile)
+<video autoplay loop muted controls width="600">
+  <source src="Documents/videos/profile.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+### Service Management (Create, Edit, and Delete a service)
+<video autoplay loop muted controls width="600">
+  <source src="Documents/videos/my_services.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 
