@@ -157,27 +157,25 @@ This section describes the features of the application.
     * Students should be able to select a payment method (e.g., credit/debit card, PayPal) securely through the platform.
     * After payment completion, students should receive a confirmation receipt within the platform.
 
-    ## Documentation
-    [DesignDocument](Documents/DesignDoc.md)
-
-## DEMO Clips
+## Documentation
+[Design Document](Documents/DesignDoc.md)
 
 ## DEMO Clips
 
 ### Login and Registration
-[![Registration/Login](Documents/videos/regest-login.mp4)]
+![Registration/Login](Documents/videos/login.gif)
 
 ### Search/Filtering Services
-[Search/Filtering Services](Documents/videos/home.mp4)
+![Search/Filtering Services](Documents/videos/home-filter.gif)
 
 ### Messaging
-[Messaging](Documents/videos/messaging.mp4)
+![Messaging](Documents/videos/messaging-gif.gif)
 
 ### Profile Management (view and updating a profile)
-[Profile Management](Documents/videos/profile.mp4)
+![Profile Management](Documents/videos/profile-gif.gif)
 
 ### Service Management (Create, Edit, and Delete a service)
-[Service Management](Documents/videos/my_services.mp4)
+![Service Management](Documents/videos/my_services-gf.gif)
 
 
 
