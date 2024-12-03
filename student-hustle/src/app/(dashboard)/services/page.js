@@ -52,11 +52,25 @@ export default function Services() {
     setInput(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault(); 
-    setServices(services.filter(card => card.title === searchInput)); 
+      try {
+        const response = await fetch(`http://localhost:5000/filter?service=${searchInput}`);
+        const data = await response.json();
+        const transformed = data[0].map((service, index) => ({
+          id: index + 1,
+          title: service[0],
+          content: service[1],
+          price: service[2]
+        }));
+        console.log(data);
+        console.log(transformed);
+        setServices(transformed); 
+      } catch(error) {
+        console.log(error);
+      }
     setInput(""); 
-  }
+  };
 
   const handleView = (id) => {
     navigate.push(`/detail/${id}`); 
@@ -69,7 +83,7 @@ export default function Services() {
       <Form onSubmit={handleSubmit}>
         <FormGroup>
         <input
-          style={ {width: '80%', alignItems:'center', padding: '10px', fontSize: '16px'} }
+          style={ {width:'80%', alignItems:'center', padding:'10px', fontSize:'16px'} }
           type="text"
           placeholder="Search here"
           onChange={handleChange}
@@ -111,6 +125,7 @@ export default function Services() {
         >
           Previous
         </Button>
+
         <Button
           color="primary"
           disabled={endIndex >= services.length} // Disable "Next" if we reached the last page
