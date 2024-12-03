@@ -36,9 +36,8 @@ def create_profile(data):
     """
     try:
         query = """
-        INSERT INTO profiles (first_name, last_name, age, sex, student_id,user_id)
-        VALUES (%s, %s, %s, %s, %s,%s);
-    
+        INSERT INTO profiles (first_name, last_name, age, sex, student_id, user_id)
+        VALUES (%s, %s, %s, %s, %s, %s);
         """
         values = (
             data['first_name'],
@@ -48,10 +47,10 @@ def create_profile(data):
             data['student_id'],
             data['user_id'],
         )
-        profile_id = exec_commit(query, values)
+        exec_commit(query, values)
     except Exception as e:
         print(f"Error creating profile: {e}")
-        return None
+        raise
 
 def update_profile(profile_id, data):
     """
@@ -65,7 +64,8 @@ def update_profile(profile_id, data):
         SET first_name = %s,
             last_name = %s,
             age = %s,
-            sex = %s
+            sex = %s,
+            student_id = %s,
         WHERE id = %s;
         '''
 
@@ -74,6 +74,7 @@ def update_profile(profile_id, data):
             data['last_name'],
             data['age'],
             data['sex'],
+            data['student_id'],
             profile_id
         )
         exec_commit(query, values)

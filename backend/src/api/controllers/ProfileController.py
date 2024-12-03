@@ -19,14 +19,13 @@ class ProfileController(Resource):
         else:
             return {"message": "Profile not found"}, 404
     def post(self):
-        # Parse request data
         try:
             data = self.parser.parse_args()
-            # Create the profile using the service
             ProfileService.create_profile(data)
             return {"message": "Profile Created"}, 200
         except Exception as e:
-            return {"message":  e}, 500
+            print(f"Error in ProfileController.post: {e}")
+            return {"message": "An unexpected error occurred"}, 500
 
     def put(self, id):
         # Parse request data profile_id
@@ -38,6 +37,8 @@ class ProfileController(Resource):
             result = ProfileService.update_profile(id, data)
             if result:
                 return {"message": "Profile updated successfully"},200
+            else:
+                return {"message": "Profile not found"}, 404
         except Exception as e:
             return {"message": "Error updating profile"}, 500
 

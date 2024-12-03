@@ -34,6 +34,7 @@ class TestProfile(unittest.TestCase):
             'last_name': 'Martin',
             'age': 31,
             'sex': 'F',
+            'student_id': 'S11223',
             'user_id': 3,
         }
         jdata = json.dumps(data)
