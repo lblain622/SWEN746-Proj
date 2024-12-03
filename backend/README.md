@@ -7,5 +7,6 @@ user: postgrestuser
 password: postgrespassword
 port: 5432
 
+To run requirements:  pip install -r requirements.txt
 To run the project: python src/server.py
 To run the tests: python -m unittest -v
