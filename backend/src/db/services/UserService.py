@@ -70,3 +70,18 @@ def verify_user(data):
     if row_found:
         return {"message": "Success"}, 200
     return {"message": "Denied"}, 400
+
+def get_all_users():
+    query = '''
+        SELECT *
+        FROM Users;
+    '''
+
+    return exec_get_all(query)
+
+def get_user_id_by_username(username):
+    query = '''
+        SELECT id FROM Users WHERE email = %s
+    '''
+    result = exec_get_all(query, (username,))
+    return result[0][0] if result else None

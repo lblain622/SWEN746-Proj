@@ -1,37 +1,28 @@
 import unittest
-from unittest.mock import patch
-from flask import Flask
-from flask_restful import Api
-from src.api.controllers.MessageController import MessageController
-from src.db.services.MessageService import MessageService
+from tests.test_utils import post_rest_call, get_rest_call
+import json
 
 class TestMessageAPI(unittest.TestCase):
     def setUp(self):
-        self.app = Flask(__name__)
-        self.api = Api(self.app)
-        self.api.add_resource(MessageController, '/messages', '/messages/<int:user_id>')
-        self.client = self.app.test_client()
+        self.base_url = 'http://localhost:5000/messages'
 
-    @patch('src.api.controllers.MessageController.MessageService.send_message')
-    def test_send_message(self, mock_send_message):
-        response = self.client.post('/messages', json={
-            'from_id': 1,
-            'to_id': 2,
-            'title': 'Hello',
-            'content': 'Hi, how are you?'
-        })
-        self.assertEqual(response.status_code, 200)
-        mock_send_message.assert_called_with(1, 2, 'Hello', 'Hi, how are you?')
+    def test_send_message(self):
+        url = self.base_url
+        params = {
+            "from_id": 1,
+            "to_id": 2,
+            "title": 'Hello',
+            "content": "Hi, how are you?"
+        }
+        response = post_rest_call(self, url, params=json.dumps(params), post_header={'Content-Type': 'application/json'},expected_code=201)
+        self.assertEqual(response['message'], 'Message sent successfully')
 
-    @patch('src.api.controllers.MessageController.MessageService.get_messages')
-    def test_get_messages(self, mock_get_messages):
-        mock_get_messages.return_value = [
-            {"from_id": 1, "to_id": 2, "title": "Hello", "content": "Hi, how are you?"}
-        ]
-        response = self.client.get('/messages/2')
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.json['messages']), 1)
-        self.assertEqual(response.json['messages'][0]['title'], 'Hello')
+    def test_get_messages(self):
+        url = f'{self.base_url}/2'
+        response = get_rest_call(self, url)
+        self.assertEqual(len(response['messages']), 3)
+        self.assertIn('sender_name', response['messages'][0])
+        self.assertIn('receiver_name', response['messages'][0])
 
 if __name__ == '__main__':
     unittest.main()

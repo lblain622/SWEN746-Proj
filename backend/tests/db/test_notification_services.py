@@ -1,34 +1,30 @@
 import unittest
-from unittest.mock import patch
-from flask import Flask
-from flask_restful import Api
-from src.api.controllers.NotificationController import NotificationController
 from src.db.services.NotificationService import NotificationService
 
 class TestNotificationService(unittest.TestCase):
     def setUp(self):
         self.notification_service = NotificationService()
 
-    @patch('src.db.services.NotificationService.NotificationService.send_notification')
-    def test_notify_message_received(self, mock_send_notification):
+
+    def test_notify_message_received(self):
         self.notification_service.notify_message_received(1)
-        mock_send_notification.assert_called_with(1, 'You have received a new message.')
+        notifications = self.notification_service.get_notifications(1)
+        self.assertTrue(any(n['content'] == 'You have received a new message.' for n in notifications))
 
-    @patch('src.db.services.NotificationService.NotificationService.send_notification')
-    def test_notify_project_assigned(self, mock_send_notification):
+    def test_notify_project_assigned(self):
         self.notification_service.notify_project_assigned(2)
-        mock_send_notification.assert_called_with(2, 'You have been assigned a new project.')
+        notifications = self.notification_service.get_notifications(2)
+        self.assertTrue(any(n['content'] == 'You have been assigned a new project.' for n in notifications))
 
-    @patch('src.db.services.NotificationService.NotificationService.send_notification')
-    def test_notify_project_deadline(self, mock_send_notification):
+    def test_notify_project_deadline(self):
         self.notification_service.notify_project_deadline(3)
-        mock_send_notification.assert_called_with(3, 'Your project deadline is approaching.')
+        notifications = self.notification_service.get_notifications(3)
+        self.assertTrue(any(n['content'] == 'Your project deadline is approaching.' for n in notifications))
 
-    @patch('src.db.services.NotificationService.NotificationService.send_notification')
-    def test_notify_task_completed(self, mock_send_notification):
-        self.notification_service.notify_task_completed(4)
-        mock_send_notification.assert_called_with(4, 'The task you assigned has been completed.')
-
+    def test_notify_task_completed(self):
+        self.notification_service.notify_task_completed(1)
+        notifications = self.notification_service.get_notifications(1)
+        self.assertTrue(any(n['content'] == 'The task you assigned has been completed.' for n in notifications))
 
 if __name__ == '__main__':
     unittest.main()
