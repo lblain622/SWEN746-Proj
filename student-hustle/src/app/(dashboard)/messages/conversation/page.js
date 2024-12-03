@@ -7,7 +7,7 @@ import { FaTelegramPlane } from 'react-icons/fa';
 import io from 'socket.io-client';
 import { toast, ToastContainer } from 'react-toastify';
 
-import 'react-toastify/dist/ReactToastify.css';
+
 
 const socket = io('http://127.0.0.1:5000');
 
