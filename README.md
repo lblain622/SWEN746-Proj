@@ -2,6 +2,8 @@
 
 [![codecov](https://codecov.io/gh/lblain622/SWEN746-Proj/branch/main/graph/badge.svg?token=XKCHK5D5F4)](https://codecov.io/gh/lblain622/SWEN746-Proj)
 
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+
 ## Team Information
 * Team name: TEAMNAME
 * Team members
