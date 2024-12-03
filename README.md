@@ -92,22 +92,19 @@ This section describes the features of the application.
   * Register
     * The user create his account and after that it should return a message of creation success
     * All the inputs should have a message of validation to guide the user
-   
   * Login
     * The user login succefully into the system, the system returns a message of success
-      
   * Filtering / Searching services 
     * The search should return an exact list of candidates matching the user's keywords. 
     * The search request should be shown in a suggestion tab with an organized and clear UI.
-
   * Scheduling the services 
     * Ensure that services are marked as unavailable once they are booked to avoid confusion to other students.
-    * The availability must exactly match the user's entered timeframed.
+    * The availability must exactly match the user's entered timeframe.
   * Manage profile
     * Users will be able to verify that they are a student to other users if the use an non edu account
-    * Users will be able to update their profile info such as name, school, and schefule
+    * Users will be able to update their profile info such as name, school, and schedule
   * Manage services
-    * Students will be able to see all avaible freelances for their selected sernice
+    * Students will be able to see all available freelances for their selected service
     * Freelances will be able to create,update,and delete their service posting
   * Manage notifications:
     * When a user places a bid or a bid is accepted, they should receive notification immediately.
@@ -124,3 +121,19 @@ This section describes the features of the application.
 
     ## Documentation
     ![DesignDocument](Documents/DesignDoc.md)
+
+    ## DEMO Clips
+    
+    ### Login and Registration
+    ![Registration/Login](Documents/videos/regest-login.mp4)
+    
+    ### Search/Filtering Services
+    ![SearchFeature](Documents/videos/home.mp4)
+    ### Messaging
+    ![Messaging](Documents/videos/messaging.mp4)
+    ### Profile Management (view and updating a profile)
+    ![Profile Management](Documents/videos/profile.mp4)
+
+    ### Service Management (Create, Edit, and Delete a service)
+  * ![ServiceManagement](Documents/videos/my_services.mp4)
+
