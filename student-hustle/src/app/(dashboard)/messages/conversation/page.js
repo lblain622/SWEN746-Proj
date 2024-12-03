@@ -78,7 +78,7 @@ export default function Conversation() {
   const handleSendMessage = () => {
     const user = localStorage.getItem('currentUser');
     const parsedUser = user ? JSON.parse(user) : {};
-    const senderName = parsedUser.name || 'Unknown';
+    const senderName = parsedUser.username || 'Unknown';
     const messageData = { from_id: currentUsername, to_id: fromId, content: newMessage, sender_name: senderName };
     console.log('Sending message:', messageData);
     socket.emit('send_message', messageData);
